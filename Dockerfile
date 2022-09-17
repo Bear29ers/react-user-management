@@ -1,2 +1,3 @@
 FROM node:16
-WORKDIR /usr/src/app
+RUN mkdir -p /app/user-management
+WORKDIR /app/user-management
