@@ -1,5 +1,6 @@
 import React, { FC, memo } from "react";
-import { Box, Button, Divider, Flex, Heading, Input, Stack } from "@chakra-ui/react";
+import { Box, Divider, Flex, Heading, Input, Stack } from "@chakra-ui/react";
+import { PrimaryButton } from '../atoms/button/PrimaryButton';
 
 export const Login: FC = memo(() => (
   <Flex align="center" justify="center" height="100vh">
@@ -8,7 +9,7 @@ export const Login: FC = memo(() => (
       <Divider my={4} />
       <Stack spacing={6} py={4} px={10}>
         <Input placeholder="ユーザーID" />
-        <Button bg="teal.400" color="white" _hover={{ opacity: 0.8 }}>ログイン</Button>
+        <PrimaryButton>ログイン</PrimaryButton>
       </Stack>
     </Box>
   </Flex>
