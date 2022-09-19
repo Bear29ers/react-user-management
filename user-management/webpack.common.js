@@ -5,7 +5,7 @@ module.exports = ({ outputFile, assetFile }) => ({
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, 'public'),
-    filenames: `${outputFile}.js`,
+    filename: `${outputFile}.js`,
     chunkFilename: `${outputFile}.js`,
   },
   module: {
@@ -16,7 +16,7 @@ module.exports = ({ outputFile, assetFile }) => ({
         use: [
           {
             loader: 'babel-loader',
-            options: { presets: ['@bable/preset-env', '@babel/react'] },
+            options: { presets: ['@babel/preset-env', '@babel/react'] },
           },
           {
             loader: 'ts-loader',
@@ -38,15 +38,15 @@ module.exports = ({ outputFile, assetFile }) => ({
         type: 'asset/resource',
       },
     ],
-    plugins: [
-      new EslintWebpackPlugin({
-        extensions: ['js', 'jsx', 'ts', 'tsx'],
-        fix: true,
-      }),
-    ],
-    resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-    },
+  },
+  plugins: [
+    new EslintWebpackPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+      fix: true,
+    }),
+  ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
 });
