@@ -5,6 +5,7 @@ module.exports = ({ outputFile, assetFile }) => ({
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, 'public'),
+    publicPath: '/',
     filename: `${outputFile}.js`,
     chunkFilename: `${outputFile}.js`,
   },
