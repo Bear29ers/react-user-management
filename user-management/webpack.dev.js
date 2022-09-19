@@ -20,6 +20,7 @@ module.exports = merge(commonConf({ outputFile, assetFile }), {
         warnings: false,
       },
     },
+    historyApiFallback: true,
   },
   watchOptions: {
     ignored: /node_modules/,
