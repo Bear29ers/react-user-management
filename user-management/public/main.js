@@ -37848,6 +37848,35 @@ var MenuIconButton = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(fu
 
 /***/ }),
 
+/***/ "./src/components/atoms/button/PrimaryButton.tsx":
+/*!*******************************************************!*\
+  !*** ./src/components/atoms/button/PrimaryButton.tsx ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PrimaryButton": function() { return /* binding */ PrimaryButton; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/index.esm.js");
+
+
+var PrimaryButton = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (props) {
+  var children = props.children;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    bg: "teal.400",
+    color: "white",
+    _hover: {
+      opacity: 0.8
+    }
+  }, children);
+});
+
+/***/ }),
+
 /***/ "./src/components/molecules/MenuDrawer.tsx":
 /*!*************************************************!*\
   !*** ./src/components/molecules/MenuDrawer.tsx ***!
@@ -38021,9 +38050,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/index.esm.js");
+/* harmony import */ var _atoms_button_PrimaryButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/button/PrimaryButton */ "./src/components/atoms/button/PrimaryButton.tsx");
+
+
 
 var Login = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function () {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "\u30ED\u30B0\u30A4\u30F3\u30DA\u30FC\u30B8\u3067\u3059");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Flex, {
+    align: "center",
+    justify: "center",
+    height: "100vh"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, {
+    bg: "white",
+    w: "sm",
+    p: 4,
+    borderRadius: "md",
+    shadow: "md"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Heading, {
+    as: "h1",
+    size: "lg",
+    textAlign: "center"
+  }, "\u30E6\u30FC\u30B6\u30FC\u7BA1\u7406\u30A2\u30D7\u30EA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Divider, {
+    my: 4
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Stack, {
+    spacing: 6,
+    py: 4,
+    px: 10
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Input, {
+    placeholder: "\u30E6\u30FC\u30B6\u30FCID"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_atoms_button_PrimaryButton__WEBPACK_IMPORTED_MODULE_1__.PrimaryButton, null, "\u30ED\u30B0\u30A4\u30F3"))));
 });
 
 /***/ }),
