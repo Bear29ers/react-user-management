@@ -1,5 +1,5 @@
-import React, { FC, memo } from "react";
 import { Drawer, DrawerOverlay, DrawerContent, DrawerBody, Button } from "@chakra-ui/react";
+import React, { FC, memo } from "react";
 
 type Props = {
   onClose: () => void;
