@@ -41,5 +41,6 @@ module.exports = {
     'react/function-component-definition': [2, { nameComponents: 'arrow-function' }],
     'import/no-cycle': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'react/jsx-no-useless-fragment': 'off',
   },
 };

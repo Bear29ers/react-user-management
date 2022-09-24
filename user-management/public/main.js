@@ -40486,6 +40486,57 @@ var Header = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (
 
 /***/ }),
 
+/***/ "./src/components/organisms/user/UserCard.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/organisms/user/UserCard.tsx ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserCard": function() { return /* binding */ UserCard; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/index.esm.js");
+
+
+var UserCard = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (props) {
+  var imageUrl = props.imageUrl,
+      userName = props.userName,
+      fullName = props.fullName;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Box, {
+    w: "260px",
+    h: "260px",
+    bg: "white",
+    borderRadius: "10px",
+    shadow: "md",
+    _hover: {
+      cursor: 'pointer',
+      opacity: 0.8
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Stack, {
+    textAlign: "center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Image, {
+    m: "auto",
+    p: 4,
+    boxSize: "160px",
+    borderRadius: "full",
+    src: imageUrl,
+    alt: userName
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {
+    fontSize: "lg",
+    fontWeight: "bold"
+  }, userName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {
+    fontSize: "sm",
+    color: "gray"
+  }, fullName)));
+});
+
+/***/ }),
+
 /***/ "./src/components/pages/Home.tsx":
 /*!***************************************!*\
   !*** ./src/components/pages/Home.tsx ***!
@@ -40643,9 +40694,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/index.esm.js");
+/* harmony import */ var _organisms_user_UserCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../organisms/user/UserCard */ "./src/components/organisms/user/UserCard.tsx");
+/* harmony import */ var _hooks_useAllUsers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useAllUsers */ "./src/hooks/useAllUsers.ts");
+
+
+
 
 var UserManagement = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function () {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "\u30E6\u30FC\u30B6\u30FC\u7BA1\u7406\u30DA\u30FC\u30B8\u3067\u3059");
+  var _useAllUsers = (0,_hooks_useAllUsers__WEBPACK_IMPORTED_MODULE_2__.useAllUsers)(),
+      getUsers = _useAllUsers.getUsers,
+      users = _useAllUsers.users,
+      loading = _useAllUsers.loading;
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    return getUsers();
+  }, [getUsers]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,  true ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Spinner, null) : /*#__PURE__*/0);
 });
 
 /***/ }),
@@ -40670,6 +40735,71 @@ var HeaderLayout = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(func
   var children = props.children;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_organisms_layout_Header__WEBPACK_IMPORTED_MODULE_1__.Header, null), children);
 });
+
+/***/ }),
+
+/***/ "./src/hooks/useAllUsers.ts":
+/*!**********************************!*\
+  !*** ./src/hooks/useAllUsers.ts ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useAllUsers": function() { return /* binding */ useAllUsers; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _useMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useMessage */ "./src/hooks/useMessage.ts");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var useAllUsers = function useAllUsers() {
+  var _useMessage = (0,_useMessage__WEBPACK_IMPORTED_MODULE_2__.useMessage)(),
+      showMessage = _useMessage.showMessage;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      loading = _useState2[0],
+      setLoading = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      users = _useState4[0],
+      setUsers = _useState4[1];
+
+  var getUsers = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
+    setLoading(true);
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://jsonplaceholder.typicode.com/users').then(function (res) {
+      return setUsers(res.data);
+    }).catch(function () {
+      showMessage({
+        title: 'ユーザー取得に失敗しました',
+        status: 'error'
+      });
+    });
+  }, [showMessage]);
+  return {
+    getUsers: getUsers,
+    loading: loading,
+    users: users
+  };
+};
 
 /***/ }),
 
@@ -40727,10 +40857,16 @@ var useAuth = function useAuth() {
         });
         navigate('/home');
       } else {
-        alert('ユーザーが見つかりません');
+        showMessage({
+          title: 'ユーザーが見つかりません',
+          status: 'error'
+        });
       }
     }).catch(function () {
-      return alert('ログインできません');
+      return showMessage({
+        title: 'ログインできません',
+        status: 'error'
+      });
     }).finally(function () {
       return setLoading(false);
     });
