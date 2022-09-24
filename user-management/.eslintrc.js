@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     browser: true,
+    node: true,
     es2021: true,
   },
   extends: [
@@ -79,7 +80,11 @@ module.exports = {
         allowAsStatement: true,
       },
     ],
-    'react/function-component-definition': [2, { nameComponents: 'arrow-function' }],
+    'react/function-component-definition': [
+      2, {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function'
+    }],
     'react/prop-types': 'off',
     'import/prefer-default-export': 'off',
     'import/no-cycle': 'off',
