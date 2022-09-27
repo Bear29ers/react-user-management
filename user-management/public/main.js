@@ -347,10 +347,11 @@ AccordionItem.displayName = "AccordionItem";
 
 
 var AccordionPanel = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_3__.forwardRef)(function AccordionPanel2(props, ref) {
+  const { className, motionProps, ...rest } = props;
   const { reduceMotion } = useAccordionContext();
   const { getPanelProps, isOpen } = useAccordionItemContext();
-  const panelProps = getPanelProps(props, ref);
-  const _className = cx("chakra-accordion__panel", props.className);
+  const panelProps = getPanelProps(rest, ref);
+  const _className = cx("chakra-accordion__panel", className);
   const styles = useAccordionStyles();
   if (!reduceMotion) {
     delete panelProps.hidden;
@@ -362,7 +363,8 @@ var AccordionPanel = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_3__.forwardRe
   });
   if (!reduceMotion) {
     return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_transition__WEBPACK_IMPORTED_MODULE_7__.Collapse, {
-      in: isOpen
+      in: isOpen,
+      ...motionProps
     }, child);
   }
   return child;
@@ -392,7 +394,7 @@ var Accordion = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_3__.forwardRef)(fu
 });
 Accordion.displayName = "Accordion";
 
-// src/use-accordiont-item-state.ts
+// src/use-accordion-item-state.ts
 function useAccordionItemState() {
   const { isOpen, isDisabled, onClose, onOpen } = useAccordionItemContext();
   return { isOpen, onClose, isDisabled, onOpen };
@@ -424,7 +426,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/icon */ "./node_modules/@chakra-ui/icon/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/spinner */ "./node_modules/@chakra-ui/spinner/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/alert.tsx
@@ -1366,7 +1368,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/spinner */ "./node_modules/@chakra-ui/spinner/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/button.tsx
@@ -1622,8 +1624,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_use_callback_ref__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react-use-callback-ref */ "./node_modules/@chakra-ui/react-use-callback-ref/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_use_controllable_state__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react-use-controllable-state */ "./node_modules/@chakra-ui/react-use-controllable-state/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
+/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
 /* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_form_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/form-control */ "./node_modules/@chakra-ui/form-control/dist/index.esm.js");
@@ -1632,7 +1634,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react-use-merge-refs */ "./node_modules/@chakra-ui/react-use-merge-refs/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_visually_hidden__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @chakra-ui/visually-hidden */ "./node_modules/@chakra-ui/visually-hidden/dist/index.esm.js");
 /* harmony import */ var _zag_js_focus_visible__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @zag-js/focus-visible */ "./node_modules/@zag-js/focus-visible/dist/index.mjs");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/checkbox-group.tsx
@@ -1738,14 +1740,7 @@ CheckboxGroup.displayName = "CheckboxGroup";
 // src/checkbox-icon.tsx
 
 
-function __motion(el) {
-  const m = framer_motion__WEBPACK_IMPORTED_MODULE_4__.motion;
-  if ("custom" in m && typeof m.custom === "function") {
-    return m.custom(el);
-  }
-  return m(el);
-}
-var MotionSvg = __motion(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra.svg);
+var MotionSvg = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra)(framer_motion__WEBPACK_IMPORTED_MODULE_5__.motion.svg);
 function CheckIcon(props) {
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MotionSvg, {
     width: "1.2em",
@@ -1802,7 +1797,7 @@ function IndeterminateIcon(props) {
 function CheckboxTransition({ open, children }) {
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_6__.AnimatePresence, {
     initial: false
-  }, open && /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_4__.motion.div, {
+  }, open && /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_5__.motion.div, {
     variants: {
       unchecked: { scale: 0.5 },
       checked: { scale: 1 }
@@ -2101,7 +2096,7 @@ function stopEvent(event) {
 }
 
 // src/checkbox.tsx
-var CheckboxControl = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra)("span", {
+var CheckboxControl = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra)("span", {
   baseStyle: {
     display: "inline-flex",
     alignItems: "center",
@@ -2111,7 +2106,7 @@ var CheckboxControl = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra)(
     flexShrink: 0
   }
 });
-var CheckboxRoot = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra)("label", {
+var CheckboxRoot = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra)("label", {
   baseStyle: {
     cursor: "pointer",
     display: "inline-flex",
@@ -2120,10 +2115,10 @@ var CheckboxRoot = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra)("la
     position: "relative"
   }
 });
-var Checkbox = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.forwardRef)(function Checkbox2(props, ref) {
+var Checkbox = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef)(function Checkbox2(props, ref) {
   const group = useCheckboxGroupContext();
   const mergedProps = { ...group, ...props };
-  const styles = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.useMultiStyleConfig)("Checkbox", mergedProps);
+  const styles = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.useMultiStyleConfig)("Checkbox", mergedProps);
   const ownProps = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_13__.omitThemingProps)(props);
   const {
     spacing = "0.5rem",
@@ -2181,7 +2176,7 @@ var Checkbox = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.forwardRef)(fun
     __css: styles.control,
     className: "chakra-checkbox__control",
     ...getCheckboxProps()
-  }, clonedIcon), children && /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra.span, {
+  }, clonedIcon), children && /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra.span, {
     className: "chakra-checkbox__label",
     ...getLabelProps(),
     __css: {
@@ -2431,7 +2426,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/icon */ "./node_modules/@chakra-ui/icon/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/close-button.tsx
@@ -2505,7 +2500,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _chakra_ui_react_use_safe_layout_effect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-use-safe-layout-effect */ "./node_modules/@chakra-ui/react-use-safe-layout-effect/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/color-mode-provider.tsx
@@ -2692,7 +2687,8 @@ function ColorModeProvider(props) {
   const context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
     colorMode: value ?? resolvedValue,
     toggleColorMode: value ? noop : toggleColorMode,
-    setColorMode: value ? noop : setColorMode
+    setColorMode: value ? noop : setColorMode,
+    forced: value !== void 0
   }), [resolvedValue, toggleColorMode, setColorMode, value]);
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ColorModeContext.Provider, {
     value: context
@@ -2703,7 +2699,8 @@ function DarkMode(props) {
   const context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
     colorMode: "dark",
     toggleColorMode: noop,
-    setColorMode: noop
+    setColorMode: noop,
+    forced: true
   }), []);
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ColorModeContext.Provider, {
     value: context,
@@ -2715,7 +2712,8 @@ function LightMode(props) {
   const context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
     colorMode: "light",
     toggleColorMode: noop,
-    setColorMode: noop
+    setColorMode: noop,
+    forced: true
   }), []);
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ColorModeContext.Provider, {
     value: context,
@@ -2748,8 +2746,10 @@ function getScriptSrc(props = {}) {
   return `!${fn}`.trim();
 }
 function ColorModeScript(props = {}) {
+  const { nonce } = props;
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement("script", {
     id: "chakra-script",
+    nonce,
     dangerouslySetInnerHTML: { __html: getScriptSrc(props) }
   });
 }
@@ -3631,15 +3631,15 @@ function isTabbable(element) {
 
 // src/index.ts
 var focusableElList = [
-  "input:not([disabled])",
-  "select:not([disabled])",
-  "textarea:not([disabled])",
+  "input:not(:disabled)",
+  "select:not(:disabled)",
+  "textarea:not(:disabled)",
   "embed",
   "iframe",
   "object",
   "a[href]",
   "area[href]",
-  "button:not([disabled])",
+  "button:not(:disabled)",
   "[tabindex]",
   "audio[controls]",
   "video[controls]",
@@ -3713,16 +3713,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/shared-utils */ "./node_modules/@chakra-ui/shared-utils/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/shared-utils */ "./node_modules/@chakra-ui/shared-utils/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_react_use_focus_on_pointer_down__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react-use-focus-on-pointer-down */ "./node_modules/@chakra-ui/react-use-focus-on-pointer-down/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_react_use_safe_layout_effect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react-use-safe-layout-effect */ "./node_modules/@chakra-ui/react-use-safe-layout-effect/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_react_use_update_effect__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react-use-update-effect */ "./node_modules/@chakra-ui/react-use-update-effect/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_react_use_controllable_state__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react-use-controllable-state */ "./node_modules/@chakra-ui/react-use-controllable-state/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react-use-merge-refs */ "./node_modules/@chakra-ui/react-use-merge-refs/dist/index.esm.js");
-// ../../react-shim.js
+/* harmony import */ var _chakra_ui_react_use_focus_on_pointer_down__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react-use-focus-on-pointer-down */ "./node_modules/@chakra-ui/react-use-focus-on-pointer-down/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react_use_safe_layout_effect__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react-use-safe-layout-effect */ "./node_modules/@chakra-ui/react-use-safe-layout-effect/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react_use_update_effect__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react-use-update-effect */ "./node_modules/@chakra-ui/react-use-update-effect/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react_use_controllable_state__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react-use-controllable-state */ "./node_modules/@chakra-ui/react-use-controllable-state/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react-use-merge-refs */ "./node_modules/@chakra-ui/react-use-merge-refs/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react_use_callback_ref__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react-use-callback-ref */ "./node_modules/@chakra-ui/react-use-callback-ref/dist/index.esm.js");
+// ../../../react-shim.js
 
 
 // src/editable.tsx
@@ -3748,6 +3749,7 @@ var [EditableProvider, useEditableContext] = (0,_chakra_ui_react_context__WEBPAC
 
 
 
+
 function contains(parent, child) {
   if (!parent)
     return false;
@@ -3766,12 +3768,13 @@ function useEditable(props = {}) {
     submitOnBlur = true,
     selectAllOnFocus = true,
     placeholder,
-    onEdit: onEditProp,
+    onEdit: onEditCallback,
     ...htmlProps
   } = props;
+  const onEditProp = (0,_chakra_ui_react_use_callback_ref__WEBPACK_IMPORTED_MODULE_2__.useCallbackRef)(onEditCallback);
   const defaultIsEditing = Boolean(startWithEditView && !isDisabled);
   const [isEditing, setIsEditing] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(defaultIsEditing);
-  const [value, setValue] = (0,_chakra_ui_react_use_controllable_state__WEBPACK_IMPORTED_MODULE_2__.useControllableState)({
+  const [value, setValue] = (0,_chakra_ui_react_use_controllable_state__WEBPACK_IMPORTED_MODULE_3__.useControllableState)({
     defaultValue: defaultValue || "",
     value: valueProp,
     onChange: onChangeProp
@@ -3782,13 +3785,13 @@ function useEditable(props = {}) {
   const editButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   const cancelButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   const submitButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  (0,_chakra_ui_react_use_focus_on_pointer_down__WEBPACK_IMPORTED_MODULE_3__.useFocusOnPointerDown)({
+  (0,_chakra_ui_react_use_focus_on_pointer_down__WEBPACK_IMPORTED_MODULE_4__.useFocusOnPointerDown)({
     ref: inputRef,
     enabled: isEditing,
     elements: [cancelButtonRef, submitButtonRef]
   });
   const isInteractive = !isEditing && !isDisabled;
-  (0,_chakra_ui_react_use_safe_layout_effect__WEBPACK_IMPORTED_MODULE_4__.useSafeLayoutEffect)(() => {
+  (0,_chakra_ui_react_use_safe_layout_effect__WEBPACK_IMPORTED_MODULE_5__.useSafeLayoutEffect)(() => {
     var _a, _b;
     if (isEditing) {
       (_a = inputRef.current) == null ? void 0 : _a.focus();
@@ -3796,15 +3799,16 @@ function useEditable(props = {}) {
         (_b = inputRef.current) == null ? void 0 : _b.select();
     }
   }, []);
-  (0,_chakra_ui_react_use_update_effect__WEBPACK_IMPORTED_MODULE_5__.useUpdateEffect)(() => {
+  (0,_chakra_ui_react_use_update_effect__WEBPACK_IMPORTED_MODULE_6__.useUpdateEffect)(() => {
     var _a, _b, _c;
     if (!isEditing) {
       (_a = editButtonRef.current) == null ? void 0 : _a.focus();
       return;
     }
     (_b = inputRef.current) == null ? void 0 : _b.focus();
-    if (selectAllOnFocus)
+    if (selectAllOnFocus) {
       (_c = inputRef.current) == null ? void 0 : _c.select();
+    }
     onEditProp == null ? void 0 : onEditProp();
   }, [isEditing, onEditProp, selectAllOnFocus]);
   const onEdit = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
@@ -3874,12 +3878,12 @@ function useEditable(props = {}) {
     const tabIndex = isInteractive && isPreviewFocusable ? 0 : void 0;
     return {
       ...props2,
-      ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, previewRef),
+      ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_7__.mergeRefs)(ref, previewRef),
       children: isValueEmpty ? placeholder : value,
       hidden: isEditing,
-      "aria-disabled": (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.ariaAttr)(isDisabled),
+      "aria-disabled": (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.ariaAttr)(isDisabled),
       tabIndex,
-      onFocus: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onFocus, onEdit, onUpdatePrevValue)
+      onFocus: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onFocus, onEdit, onUpdatePrevValue)
     };
   }, [
     isDisabled,
@@ -3896,14 +3900,14 @@ function useEditable(props = {}) {
     ...props2,
     hidden: !isEditing,
     placeholder,
-    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, inputRef),
+    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_7__.mergeRefs)(ref, inputRef),
     disabled: isDisabled,
-    "aria-disabled": (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.ariaAttr)(isDisabled),
+    "aria-disabled": (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.ariaAttr)(isDisabled),
     value,
-    onBlur: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onBlur, onBlur),
-    onChange: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onChange, onChange),
-    onKeyDown: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onKeyDown, onKeyDown),
-    onFocus: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onFocus, onUpdatePrevValue)
+    onBlur: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onBlur, onBlur),
+    onChange: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onChange, onChange),
+    onKeyDown: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onKeyDown, onKeyDown),
+    onFocus: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onFocus, onUpdatePrevValue)
   }), [
     isDisabled,
     isEditing,
@@ -3918,14 +3922,14 @@ function useEditable(props = {}) {
     ...props2,
     hidden: !isEditing,
     placeholder,
-    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, inputRef),
+    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_7__.mergeRefs)(ref, inputRef),
     disabled: isDisabled,
-    "aria-disabled": (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.ariaAttr)(isDisabled),
+    "aria-disabled": (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.ariaAttr)(isDisabled),
     value,
-    onBlur: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onBlur, onBlur),
-    onChange: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onChange, onChange),
-    onKeyDown: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onKeyDown, onKeyDownWithoutSubmit),
-    onFocus: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onFocus, onUpdatePrevValue)
+    onBlur: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onBlur, onBlur),
+    onChange: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onChange, onChange),
+    onKeyDown: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onKeyDown, onKeyDownWithoutSubmit),
+    onFocus: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onFocus, onUpdatePrevValue)
   }), [
     isDisabled,
     isEditing,
@@ -3940,25 +3944,25 @@ function useEditable(props = {}) {
     "aria-label": "Edit",
     ...props2,
     type: "button",
-    onClick: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onClick, onEdit),
-    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, editButtonRef),
+    onClick: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onClick, onEdit),
+    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_7__.mergeRefs)(ref, editButtonRef),
     disabled: isDisabled
   }), [onEdit, isDisabled]);
   const getSubmitButtonProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((props2 = {}, ref = null) => ({
     ...props2,
     "aria-label": "Submit",
-    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(submitButtonRef, ref),
+    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_7__.mergeRefs)(submitButtonRef, ref),
     type: "button",
-    onClick: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onClick, onSubmit),
+    onClick: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onClick, onSubmit),
     disabled: isDisabled
   }), [onSubmit, isDisabled]);
   const getCancelButtonProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((props2 = {}, ref = null) => ({
     "aria-label": "Cancel",
     id: "cancel",
     ...props2,
-    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(cancelButtonRef, ref),
+    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_7__.mergeRefs)(cancelButtonRef, ref),
     type: "button",
-    onClick: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.callAllHandlers)(props2.onClick, onCancel),
+    onClick: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.callAllHandlers)(props2.onClick, onCancel),
     disabled: isDisabled
   }), [onCancel, isDisabled]);
   return {
@@ -3980,13 +3984,13 @@ function useEditable(props = {}) {
 }
 
 // src/editable.tsx
-var Editable = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.forwardRef)(function Editable2(props, ref) {
-  const styles = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.useMultiStyleConfig)("Editable", props);
-  const ownProps = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.omitThemingProps)(props);
+var Editable = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function Editable2(props, ref) {
+  const styles = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.useMultiStyleConfig)("Editable", props);
+  const ownProps = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_10__.omitThemingProps)(props);
   const { htmlProps, ...context } = useEditable(ownProps);
   const { isEditing, onSubmit, onCancel, onEdit } = context;
-  const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.cx)("chakra-editable", props.className);
-  const children = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.runIfFn)(props.children, {
+  const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.cx)("chakra-editable", props.className);
+  const children = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.runIfFn)(props.children, {
     isEditing,
     onSubmit,
     onCancel,
@@ -3996,7 +4000,7 @@ var Editable = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.forwardRef)(fun
     value: context
   }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(EditableStylesProvider, {
     value: styles
-  }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.chakra.div, {
+  }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.div, {
     ref,
     ...htmlProps,
     className: _className
@@ -4017,12 +4021,12 @@ var commonStyles = {
 };
 
 // src/editable-input.tsx
-var EditableInput = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.forwardRef)(function EditableInput2(props, ref) {
+var EditableInput = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function EditableInput2(props, ref) {
   const { getInputProps } = useEditableContext();
   const styles = useEditableStyles();
   const inputProps = getInputProps(props, ref);
-  const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.cx)("chakra-editable__input", props.className);
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.chakra.input, {
+  const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.cx)("chakra-editable__input", props.className);
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.input, {
     ...inputProps,
     __css: {
       outline: 0,
@@ -4037,12 +4041,12 @@ EditableInput.displayName = "EditableInput";
 // src/editable-textarea.tsx
 
 
-var EditableTextarea = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.forwardRef)(function EditableTextarea2(props, ref) {
+var EditableTextarea = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function EditableTextarea2(props, ref) {
   const { getTextareaProps } = useEditableContext();
   const styles = useEditableStyles();
   const textareaProps = getTextareaProps(props, ref);
-  const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.cx)("chakra-editable__textarea", props.className);
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.chakra.textarea, {
+  const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.cx)("chakra-editable__textarea", props.className);
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.textarea, {
     ...textareaProps,
     __css: {
       outline: 0,
@@ -4057,12 +4061,12 @@ EditableTextarea.displayName = "EditableTextarea";
 // src/editable-preview.tsx
 
 
-var EditablePreview = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.forwardRef)(function EditablePreview2(props, ref) {
+var EditablePreview = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function EditablePreview2(props, ref) {
   const { getPreviewProps } = useEditableContext();
   const styles = useEditableStyles();
   const previewProps = getPreviewProps(props, ref);
-  const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_7__.cx)("chakra-editable__preview", props.className);
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.chakra.span, {
+  const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_8__.cx)("chakra-editable__preview", props.className);
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.span, {
     ...previewProps,
     __css: {
       cursor: "text",
@@ -4204,7 +4208,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_focus_lock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-focus-lock */ "./node_modules/react-focus-lock/dist/es2015/index.js");
 /* harmony import */ var _chakra_ui_dom_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/dom-utils */ "./node_modules/@chakra-ui/dom-utils/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/focus-lock.tsx
@@ -4285,7 +4289,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/icon */ "./node_modules/@chakra-ui/icon/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/form-control.tsx
@@ -5349,7 +5353,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/shared-utils */ "./node_modules/@chakra-ui/shared-utils/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/icon.tsx
@@ -5523,7 +5527,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _chakra_ui_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/icon */ "./node_modules/@chakra-ui/icon/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/Copy.tsx
@@ -6367,7 +6371,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_children_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react-children-utils */ "./node_modules/@chakra-ui/react-children-utils/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_object_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/object-utils */ "./node_modules/@chakra-ui/object-utils/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/input.tsx
@@ -6631,7 +6635,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_icon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/icon */ "./node_modules/@chakra-ui/icon/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_children_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react-children-utils */ "./node_modules/@chakra-ui/react-children-utils/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/aspect-ratio.tsx
@@ -6973,7 +6977,7 @@ function buildRegex(query) {
 function highlightWords({ text, query }) {
   const regex = buildRegex(Array.isArray(query) ? query : [query]);
   if (!regex) {
-    return [];
+    return [{ text, match: false }];
   }
   const result = text.split(regex).filter(Boolean);
   return result.map((str) => ({ text: str, match: regex.test(str) }));
@@ -7309,24 +7313,33 @@ var Stack = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__.forwardRef)((props
   const dividerStyle = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => getDividerStyles({ spacing, direction }), [spacing, direction]);
   const hasDivider = !!divider;
   const shouldUseChildren = !shouldWrapChildren && !hasDivider;
-  const validChildren = (0,_chakra_ui_react_children_utils__WEBPACK_IMPORTED_MODULE_7__.getValidChildren)(children);
-  const clones = shouldUseChildren ? validChildren : validChildren.map((child, index) => {
-    const key = typeof child.key !== "undefined" ? child.key : index;
-    const isLast = index + 1 === validChildren.length;
-    const wrappedChild = /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StackItem, {
-      key
-    }, child);
-    const _child = shouldWrapChildren ? wrappedChild : child;
-    if (!hasDivider)
-      return _child;
-    const clonedDivider = (0,react__WEBPACK_IMPORTED_MODULE_0__.cloneElement)(divider, {
-      __css: dividerStyle
+  const clones = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    const validChildren = (0,_chakra_ui_react_children_utils__WEBPACK_IMPORTED_MODULE_7__.getValidChildren)(children);
+    return shouldUseChildren ? validChildren : validChildren.map((child, index) => {
+      const key = typeof child.key !== "undefined" ? child.key : index;
+      const isLast = index + 1 === validChildren.length;
+      const wrappedChild = /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StackItem, {
+        key
+      }, child);
+      const _child = shouldWrapChildren ? wrappedChild : child;
+      if (!hasDivider)
+        return _child;
+      const clonedDivider = (0,react__WEBPACK_IMPORTED_MODULE_0__.cloneElement)(divider, {
+        __css: dividerStyle
+      });
+      const _divider = isLast ? null : clonedDivider;
+      return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        key
+      }, _child, _divider);
     });
-    const _divider = isLast ? null : clonedDivider;
-    return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      key
-    }, _child, _divider);
-  });
+  }, [
+    divider,
+    dividerStyle,
+    hasDivider,
+    shouldUseChildren,
+    shouldWrapChildren,
+    children
+  ]);
   const _className = (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_2__.cx)("chakra-stack", className);
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__.chakra.div, {
     ref,
@@ -7443,9 +7456,9 @@ var Wrap = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(functio
       }
     };
   }, [spacing, spacingX, spacingY, justify, align, direction]);
-  const childrenToRender = shouldWrapChildren ? react__WEBPACK_IMPORTED_MODULE_0__.Children.map(children, (child, index) => /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(WrapItem, {
+  const childrenToRender = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => shouldWrapChildren ? react__WEBPACK_IMPORTED_MODULE_0__.Children.map(children, (child, index) => /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(WrapItem, {
     key: index
-  }, child)) : children;
+  }, child)) : children, [children, shouldWrapChildren]);
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__.chakra.div, {
     ref,
     className: (0,_chakra_ui_shared_utils__WEBPACK_IMPORTED_MODULE_2__.cx)("chakra-wrap", className),
@@ -7522,7 +7535,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_env__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react-env */ "./node_modules/@chakra-ui/react-env/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_breakpoint_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/breakpoint-utils */ "./node_modules/@chakra-ui/breakpoint-utils/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/media-query.tsx
@@ -8406,7 +8419,6 @@ var MenuDivider = (props) => {
   const { className, ...rest } = props;
   const styles = useMenuStyles();
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_14__.chakra.hr, {
-    role: "separator",
     "aria-orientation": "horizontal",
     className: cx("chakra-menu__divider", className),
     ...rest,
@@ -8565,40 +8577,31 @@ var motionVariants = {
     }
   }
 };
-function __motion(el) {
-  const m = framer_motion__WEBPACK_IMPORTED_MODULE_16__.motion;
-  if ("custom" in m && typeof m.custom === "function") {
-    return m.custom(el);
-  }
-  return m(el);
-}
-var MenuTransition = __motion(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_14__.chakra.div);
-var MenuList = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_14__.forwardRef)((props, ref) => {
+var MenuTransition = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_14__.chakra)(framer_motion__WEBPACK_IMPORTED_MODULE_16__.motion.div);
+var MenuList = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_14__.forwardRef)(function MenuList2(props, ref) {
   var _a;
-  const { rootProps, ...rest } = props;
+  const { rootProps, motionProps, ...rest } = props;
   const {
     isOpen,
     onTransitionEnd,
     unstable__animationState: animated
   } = useMenuContext();
-  const ownProps = useMenuList(rest, ref);
+  const listProps = useMenuList(rest, ref);
   const positionerProps = useMenuPositioner(rootProps);
   const styles = useMenuStyles();
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_14__.chakra.div, {
     ...positionerProps,
     __css: { zIndex: props.zIndex ?? ((_a = styles.list) == null ? void 0 : _a.zIndex) }
   }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MenuTransition, {
-    ...ownProps,
-    onUpdate: onTransitionEnd,
-    onAnimationComplete: callAll(animated.onComplete, ownProps.onAnimationComplete),
-    className: cx("chakra-menu__menu-list", ownProps.className),
     variants: motionVariants,
     initial: false,
     animate: isOpen ? "enter" : "exit",
-    __css: {
-      outline: 0,
-      ...styles.list
-    }
+    __css: { outline: 0, ...styles.list },
+    ...motionProps,
+    className: cx("chakra-menu__menu-list", listProps.className),
+    ...listProps,
+    onUpdate: onTransitionEnd,
+    onAnimationComplete: callAll(animated.onComplete, listProps.onAnimationComplete)
   }));
 });
 MenuList.displayName = "MenuList";
@@ -8671,7 +8674,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_remove_scroll__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-remove-scroll */ "./node_modules/react-remove-scroll/dist/es2015/Combination.js");
 /* harmony import */ var _chakra_ui_transition__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/transition */ "./node_modules/@chakra-ui/transition/dist/index.esm.js");
 /* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/modal.tsx
@@ -8985,11 +8988,13 @@ var transitions = {
   },
   none: {}
 };
-var Motion = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra)(framer_motion__WEBPACK_IMPORTED_MODULE_12__.motion.section);
+var MotionSection = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra)(framer_motion__WEBPACK_IMPORTED_MODULE_12__.motion.section);
+var getMotionProps = (preset) => {
+  return transitions[preset || "none"];
+};
 var ModalTransition = (0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)((props, ref) => {
-  const { preset, ...rest } = props;
-  const motionProps = transitions[preset];
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Motion, {
+  const { preset, motionProps = getMotionProps(preset), ...rest } = props;
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MotionSection, {
     ref,
     ...motionProps,
     ...rest
@@ -8999,7 +9004,13 @@ ModalTransition.displayName = "ModalTransition";
 
 // src/modal-content.tsx
 var ModalContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef)((props, ref) => {
-  const { className, children, containerProps: rootProps, ...rest } = props;
+  const {
+    className,
+    children,
+    containerProps: rootProps,
+    motionProps,
+    ...rest
+  } = props;
   const { getDialogProps, getDialogContainerProps } = useModalContext();
   const dialogProps = getDialogProps(rest, ref);
   const containerProps = getDialogContainerProps(rootProps);
@@ -9016,10 +9027,7 @@ var ModalContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef)
   const dialogContainerStyles = {
     display: "flex",
     width: "100vw",
-    height: "100vh",
-    "@supports(height: -webkit-fill-available)": {
-      height: "-webkit-fill-available"
-    },
+    height: "$100vh",
     position: "fixed",
     left: 0,
     top: 0,
@@ -9033,6 +9041,7 @@ var ModalContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef)
     __css: dialogContainerStyles
   }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ModalTransition, {
     preset: motionPreset,
+    motionProps,
     className: _className,
     ...dialogProps,
     __css: dialogStyles
@@ -9093,7 +9102,7 @@ ModalHeader.displayName = "ModalHeader";
 
 var MotionDiv = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra)(framer_motion__WEBPACK_IMPORTED_MODULE_12__.motion.div);
 var ModalOverlay = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef)((props, ref) => {
-  const { className, transition, ...rest } = props;
+  const { className, transition, motionProps: _motionProps, ...rest } = props;
   const _className = cx("chakra-modal__overlay", className);
   const styles = useModalStyles();
   const overlayStyle = {
@@ -9105,7 +9114,8 @@ var ModalOverlay = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef)
     ...styles.overlay
   };
   const { motionPreset } = useModalContext();
-  const motionProps = motionPreset === "none" ? {} : _chakra_ui_transition__WEBPACK_IMPORTED_MODULE_11__.fadeConfig;
+  const defaultMotionProps = motionPreset === "none" ? {} : _chakra_ui_transition__WEBPACK_IMPORTED_MODULE_11__.fadeConfig;
+  const motionProps = _motionProps || defaultMotionProps;
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MotionDiv, {
     ...motionProps,
     __css: overlayStyle,
@@ -9170,9 +9180,9 @@ function Drawer(props) {
 // src/drawer-content.tsx
 
 
-var StyledSlide = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra)(_chakra_ui_transition__WEBPACK_IMPORTED_MODULE_11__.Slide);
+var MotionDiv2 = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.chakra)(_chakra_ui_transition__WEBPACK_IMPORTED_MODULE_11__.Slide);
 var DrawerContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef)((props, ref) => {
-  const { className, children, ...rest } = props;
+  const { className, children, motionProps, ...rest } = props;
   const { getDialogProps, getDialogContainerProps, isOpen } = useModalContext();
   const dialogProps = getDialogProps(rest, ref);
   const containerProps = getDialogContainerProps();
@@ -9189,7 +9199,7 @@ var DrawerContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef
   const dialogContainerStyles = {
     display: "flex",
     width: "100vw",
-    height: "100vh",
+    height: "$100vh",
     position: "fixed",
     left: 0,
     top: 0,
@@ -9200,7 +9210,8 @@ var DrawerContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_4__.forwardRef
     ...containerProps,
     className: "chakra-modal__content-container",
     __css: dialogContainerStyles
-  }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ModalFocusScope, null, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledSlide, {
+  }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ModalFocusScope, null, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MotionDiv2, {
+    motionProps,
     direction: placement,
     in: isOpen,
     className: _className,
@@ -9246,7 +9257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react_use_callback_ref__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react-use-callback-ref */ "./node_modules/@chakra-ui/react-use-callback-ref/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react-use-merge-refs */ "./node_modules/@chakra-ui/react-use-merge-refs/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_use_interval__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react-use-interval */ "./node_modules/@chakra-ui/react-use-interval/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/number-input.tsx
@@ -9574,8 +9585,9 @@ function useNumberInput(props = {}) {
       role: "button",
       tabIndex: -1,
       onPointerDown: callAllHandlers(props2.onPointerDown, (event) => {
-        if (!disabled)
-          spinUp(event);
+        if (event.button !== 0 || disabled)
+          return;
+        spinUp(event);
       }),
       onPointerLeave: callAllHandlers(props2.onPointerLeave, spinner.stop),
       onPointerUp: callAllHandlers(props2.onPointerUp, spinner.stop),
@@ -9591,8 +9603,9 @@ function useNumberInput(props = {}) {
       role: "button",
       tabIndex: -1,
       onPointerDown: callAllHandlers(props2.onPointerDown, (event) => {
-        if (!disabled)
-          spinDown(event);
+        if (event.button !== 0 || disabled)
+          return;
+        spinDown(event);
       }),
       onPointerLeave: callAllHandlers(props2.onPointerLeave, spinner.stop),
       onPointerUp: callAllHandlers(props2.onPointerUp, spinner.stop),
@@ -10007,7 +10020,7 @@ function usePinInput(props = {}) {
       });
     }
   }, [descendants, moveFocus, manageFocus]);
-  const setValue = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((value2, index) => {
+  const setValue = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((value2, index, handleFocus = true) => {
     const nextValues = [...values];
     nextValues[index] = value2;
     setValues(nextValues);
@@ -10015,7 +10028,8 @@ function usePinInput(props = {}) {
     if (isComplete) {
       onComplete == null ? void 0 : onComplete(nextValues.join(""));
     } else {
-      focusNext(index);
+      if (handleFocus)
+        focusNext(index);
     }
   }, [values, setValues, focusNext, onComplete, descendants]);
   const clear = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
@@ -10067,7 +10081,7 @@ function usePinInput(props = {}) {
         if (event.target.value === "") {
           const prevInput = descendants.prev(index, false);
           if (prevInput) {
-            setValue("", index - 1);
+            setValue("", index - 1, false);
             (_a = prevInput.node) == null ? void 0 : _a.focus();
             setMoveFocus(true);
           }
@@ -10188,17 +10202,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/hooks */ "./node_modules/@chakra-ui/hooks/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react_use_animation_state__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react-use-animation-state */ "./node_modules/@chakra-ui/react-use-animation-state/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react_use_focus_on_pointer_down__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react-use-focus-on-pointer-down */ "./node_modules/@chakra-ui/react-use-focus-on-pointer-down/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react_use_focus_effect__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react-use-focus-effect */ "./node_modules/@chakra-ui/react-use-focus-effect/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_use_disclosure__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react-use-disclosure */ "./node_modules/@chakra-ui/react-use-disclosure/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_popper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/popper */ "./node_modules/@chakra-ui/popper/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react-use-merge-refs */ "./node_modules/@chakra-ui/react-use-merge-refs/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_lazy_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/lazy-utils */ "./node_modules/@chakra-ui/lazy-utils/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_close_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/close-button */ "./node_modules/@chakra-ui/close-button/dist/index.esm.js");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
-// ../../react-shim.js
+/* harmony import */ var _chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react-use-merge-refs */ "./node_modules/@chakra-ui/react-use-merge-refs/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_lazy_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/lazy-utils */ "./node_modules/@chakra-ui/lazy-utils/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_close_button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/close-button */ "./node_modules/@chakra-ui/close-button/dist/index.esm.js");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
+// ../../../react-shim.js
 
 
 // src/popover.tsx
@@ -10238,6 +10254,8 @@ var [PopoverStylesProvider, usePopoverStyles] = (0,_chakra_ui_react_context__WEB
 });
 
 // src/use-popover.ts
+
+
 
 
 
@@ -10295,22 +10313,22 @@ function usePopover(props = {}) {
     ...popperProps,
     enabled: isOpen || !!computePositionOnMount
   });
-  const animated = (0,_chakra_ui_hooks__WEBPACK_IMPORTED_MODULE_4__.useAnimationState)({ isOpen, ref: popoverRef });
-  (0,_chakra_ui_hooks__WEBPACK_IMPORTED_MODULE_4__.useFocusOnPointerDown)({
+  const animated = (0,_chakra_ui_react_use_animation_state__WEBPACK_IMPORTED_MODULE_4__.useAnimationState)({ isOpen, ref: popoverRef });
+  (0,_chakra_ui_react_use_focus_on_pointer_down__WEBPACK_IMPORTED_MODULE_5__.useFocusOnPointerDown)({
     enabled: isOpen,
     ref: triggerRef
   });
-  (0,_chakra_ui_hooks__WEBPACK_IMPORTED_MODULE_4__.useFocusOnHide)(popoverRef, {
+  (0,_chakra_ui_react_use_focus_effect__WEBPACK_IMPORTED_MODULE_6__.useFocusOnHide)(popoverRef, {
     focusRef: triggerRef,
     visible: isOpen,
     shouldFocus: returnFocusOnClose && trigger === TRIGGER.click
   });
-  (0,_chakra_ui_hooks__WEBPACK_IMPORTED_MODULE_4__.useFocusOnShow)(popoverRef, {
+  (0,_chakra_ui_react_use_focus_effect__WEBPACK_IMPORTED_MODULE_6__.useFocusOnShow)(popoverRef, {
     focusRef: initialFocusRef,
     visible: isOpen,
     shouldFocus: autoFocus && trigger === TRIGGER.click
   });
-  const shouldRenderChildren = (0,_chakra_ui_lazy_utils__WEBPACK_IMPORTED_MODULE_5__.lazyDisclosure)({
+  const shouldRenderChildren = (0,_chakra_ui_lazy_utils__WEBPACK_IMPORTED_MODULE_7__.lazyDisclosure)({
     wasSelected: hasBeenOpened.current,
     enabled: isLazy,
     mode: lazyBehavior,
@@ -10325,7 +10343,7 @@ function usePopover(props = {}) {
         [_chakra_ui_popper__WEBPACK_IMPORTED_MODULE_3__.popperCSSVars.arrowSize["var"]]: arrowSize ? `${arrowSize}px` : void 0,
         [_chakra_ui_popper__WEBPACK_IMPORTED_MODULE_3__.popperCSSVars.arrowShadowColor["var"]]: arrowShadowColor
       },
-      ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(popoverRef, _ref),
+      ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_8__.mergeRefs)(popoverRef, _ref),
       children: shouldRenderChildren ? props2.children : null,
       id: popoverId,
       tabIndex: -1,
@@ -10357,7 +10375,7 @@ function usePopover(props = {}) {
           return;
         }
         isHoveringRef.current = false;
-        setTimeout(onClose, closeDelay);
+        setTimeout(() => onClose(), closeDelay);
       });
     }
     return popoverProps;
@@ -10387,7 +10405,7 @@ function usePopover(props = {}) {
   const getAnchorProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((props2, _ref = null) => {
     return {
       ...props2,
-      ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(_ref, anchorRef, referenceRef)
+      ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_8__.mergeRefs)(_ref, anchorRef, referenceRef)
     };
   }, [anchorRef, referenceRef]);
   const openTimeout = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
@@ -10400,7 +10418,7 @@ function usePopover(props = {}) {
   const getTriggerProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((props2 = {}, _ref = null) => {
     const triggerProps = {
       ...props2,
-      ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(triggerRef, _ref, maybeReferenceRef),
+      ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_8__.mergeRefs)(triggerRef, _ref, maybeReferenceRef),
       id: triggerId,
       "aria-haspopup": "dialog",
       "aria-expanded": isOpen,
@@ -10429,7 +10447,7 @@ function usePopover(props = {}) {
       });
       triggerProps.onMouseEnter = callAllHandlers(props2.onMouseEnter, () => {
         isHoveringRef.current = true;
-        openTimeout.current = window.setTimeout(onOpen, openDelay);
+        openTimeout.current = window.setTimeout(() => onOpen(), openDelay);
       });
       triggerProps.onMouseLeave = callAllHandlers(props2.onMouseLeave, () => {
         isHoveringRef.current = false;
@@ -10471,14 +10489,14 @@ function usePopover(props = {}) {
   const getHeaderProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((props2 = {}, ref = null) => ({
     ...props2,
     id: headerId,
-    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, (node) => {
+    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_8__.mergeRefs)(ref, (node) => {
       setHasHeader(!!node);
     })
   }), [headerId]);
   const getBodyProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((props2 = {}, ref = null) => ({
     ...props2,
     id: bodyId,
-    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, (node) => {
+    ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_8__.mergeRefs)(ref, (node) => {
       setHasBody(!!node);
     })
   }), [bodyId]);
@@ -10507,9 +10525,9 @@ function getRelatedTarget(event) {
 
 // src/popover.tsx
 function Popover(props) {
-  const styles = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.useMultiStyleConfig)("Popover", props);
-  const { children, ...rest } = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_8__.omitThemingProps)(props);
-  const theme = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.useTheme)();
+  const styles = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.useMultiStyleConfig)("Popover", props);
+  const { children, ...rest } = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_10__.omitThemingProps)(props);
+  const theme = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.useTheme)();
   const context = usePopover({ ...rest, direction: theme.direction });
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PopoverProvider, {
     value: context
@@ -10539,10 +10557,10 @@ function PopoverArrow(props) {
   const { getArrowProps, getArrowInnerProps } = usePopoverContext();
   const styles = usePopoverStyles();
   const arrowBg = bg ?? bgColor ?? backgroundColor;
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.chakra.div, {
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.div, {
     ...getArrowProps(),
     className: "chakra-popover__arrow-positioner"
-  }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.chakra.div, {
+  }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.div, {
     className: cx("chakra-popover__arrow", props.className),
     ...getArrowInnerProps(props),
     __css: {
@@ -10555,10 +10573,10 @@ PopoverArrow.displayName = "PopoverArrow";
 
 // src/popover-body.tsx
 
-var PopoverBody = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.forwardRef)(function PopoverBody2(props, ref) {
+var PopoverBody = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function PopoverBody2(props, ref) {
   const { getBodyProps } = usePopoverContext();
   const styles = usePopoverStyles();
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.chakra.div, {
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.div, {
     ...getBodyProps(props, ref),
     className: cx("chakra-popover__body", props.className),
     __css: styles.body
@@ -10569,10 +10587,10 @@ PopoverBody.displayName = "PopoverBody";
 // src/popover-close-button.tsx
 
 
-var PopoverCloseButton = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.forwardRef)(function PopoverCloseButton2(props, ref) {
+var PopoverCloseButton = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function PopoverCloseButton2(props, ref) {
   const { onClose } = usePopoverContext();
   const styles = usePopoverStyles();
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_close_button__WEBPACK_IMPORTED_MODULE_9__.CloseButton, {
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_close_button__WEBPACK_IMPORTED_MODULE_11__.CloseButton, {
     size: "sm",
     onClick: onClose,
     className: cx("chakra-popover__close-btn", props.className),
@@ -10624,25 +10642,23 @@ var scaleFade = {
     }
   }
 };
-var Section = (0,framer_motion__WEBPACK_IMPORTED_MODULE_10__.motion)(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.chakra.section);
-var PopoverTransition = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.forwardRef)(function PopoverTransition2(props, ref) {
+var MotionSection = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra)(framer_motion__WEBPACK_IMPORTED_MODULE_12__.motion.section);
+var PopoverTransition = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function PopoverTransition2(props, ref) {
+  const { variants = scaleFade, ...rest } = props;
   const { isOpen } = usePopoverContext();
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Section, {
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MotionSection, {
     ref,
-    variants: mergeVariants(props.variants),
-    ...props,
+    variants: mergeVariants(variants),
     initial: false,
-    animate: isOpen ? "enter" : "exit"
+    animate: isOpen ? "enter" : "exit",
+    ...rest
   });
 });
-PopoverTransition.defaultProps = {
-  variants: scaleFade
-};
 PopoverTransition.displayName = "PopoverTransition";
 
 // src/popover-content.tsx
-var PopoverContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.forwardRef)(function PopoverContent2(props, ref) {
-  const { rootProps, ...contentProps } = props;
+var PopoverContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function PopoverContent2(props, ref) {
+  const { rootProps, motionProps, ...contentProps } = props;
   const { getPopoverProps, getPopoverPositionerProps, onAnimationComplete } = usePopoverContext();
   const styles = usePopoverStyles();
   const contentStyles = {
@@ -10651,11 +10667,12 @@ var PopoverContent = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.forwardRe
     flexDirection: "column",
     ...styles.content
   };
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.chakra.div, {
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.div, {
     ...getPopoverPositionerProps(rootProps),
     __css: styles.popper,
     className: "chakra-popover__popper"
   }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PopoverTransition, {
+    ...motionProps,
     ...getPopoverProps(contentProps, ref),
     onAnimationComplete: callAll(onAnimationComplete, contentProps.onAnimationComplete),
     className: cx("chakra-popover__content", props.className),
@@ -10668,7 +10685,7 @@ PopoverContent.displayName = "PopoverContent";
 
 function PopoverFooter(props) {
   const styles = usePopoverStyles();
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.chakra.footer, {
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.footer, {
     ...props,
     className: cx("chakra-popover__footer", props.className),
     __css: styles.footer
@@ -10678,10 +10695,10 @@ PopoverFooter.displayName = "PopoverFooter";
 
 // src/popover-header.tsx
 
-var PopoverHeader = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.forwardRef)(function PopoverHeader2(props, ref) {
+var PopoverHeader = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.forwardRef)(function PopoverHeader2(props, ref) {
   const { getHeaderProps } = usePopoverContext();
   const styles = usePopoverStyles();
-  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.chakra.header, {
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_9__.chakra.header, {
     ...getHeaderProps(props, ref),
     className: cx("chakra-popover__header", props.className),
     __css: styles.header
@@ -11590,7 +11607,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-use-merge-refs */ "./node_modules/@chakra-ui/react-use-merge-refs/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_form_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/form-control */ "./node_modules/@chakra-ui/form-control/dist/index.esm.js");
 /* harmony import */ var _zag_js_focus_visible__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @zag-js/focus-visible */ "./node_modules/@zag-js/focus-visible/dist/index.mjs");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/radio.tsx
@@ -14513,7 +14530,7 @@ function useControllableState(props) {
   const [uncontrolledState, setUncontrolledState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(defaultValue);
   const controlled = valueProp !== void 0;
   const value = controlled ? valueProp : uncontrolledState;
-  const setValue = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((next) => {
+  const setValue = (0,_chakra_ui_react_use_callback_ref__WEBPACK_IMPORTED_MODULE_1__.useCallbackRef)((next) => {
     const setter = next;
     const nextValue = typeof next === "function" ? setter(value) : next;
     if (!shouldUpdateProp(value, nextValue)) {
@@ -14560,7 +14577,8 @@ function useDisclosure(props = {}) {
   const [isOpenState, setIsOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(props.defaultIsOpen || false);
   const isOpen = isOpenProp !== void 0 ? isOpenProp : isOpenState;
   const isControlled = isOpenProp !== void 0;
-  const id = idProp ?? `disclosure-${(0,react__WEBPACK_IMPORTED_MODULE_0__.useId)()}`;
+  const uid = (0,react__WEBPACK_IMPORTED_MODULE_0__.useId)();
+  const id = idProp ?? `disclosure-${uid}`;
   const onClose = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
     if (!isControlled) {
       setIsOpen(false);
@@ -14665,10 +14683,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "useFocusOnShow": function() { return /* binding */ useFocusOnShow; }
 /* harmony export */ });
 /* harmony import */ var _chakra_ui_dom_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/dom-utils */ "./node_modules/@chakra-ui/dom-utils/dist/index.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _chakra_ui_react_use_event_listener__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react-use-event-listener */ "./node_modules/@chakra-ui/react-use-event-listener/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_use_update_effect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react-use-update-effect */ "./node_modules/@chakra-ui/react-use-update-effect/dist/index.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 // src/index.ts
 
 
@@ -14785,7 +14803,7 @@ function useFocusOnPointerDown(props) {
       const el = isRefObject(elementOrRef) ? elementOrRef.current : elementOrRef;
       return (el == null ? void 0 : el.contains(target)) || el === target;
     });
-    if (doc().activeElement === target && isValidTarget) {
+    if (doc().activeElement !== target && isValidTarget) {
       event.preventDefault();
       target.focus();
     }
@@ -17352,15 +17370,15 @@ var dataAttr = (condition) => condition ? "" : void 0;
 var ariaAttr = (condition) => condition ? true : void 0;
 var cx = (...classNames) => classNames.filter(Boolean).join(" ");
 var focusableElList = [
-  "input:not([disabled])",
-  "select:not([disabled])",
-  "textarea:not([disabled])",
+  "input:not(:disabled)",
+  "select:not(:disabled)",
+  "textarea:not(:disabled)",
   "embed",
   "iframe",
   "object",
   "a[href]",
   "area[href]",
-  "button:not([disabled])",
+  "button:not(:disabled)",
   "[tabindex]",
   "audio[controls]",
   "video[controls]",
@@ -18448,7 +18466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/stat-arrow.tsx
@@ -19769,7 +19787,7 @@ var pseudoSelectors = {
   _highlighted: "&[data-highlighted]",
   _focusWithin: "&:focus-within",
   _focusVisible: "&:focus-visible, &[data-focus-visible]",
-  _disabled: "&[disabled], &[aria-disabled=true], &[data-disabled]",
+  _disabled: "&:disabled, &[aria-disabled=true], &[data-disabled]",
   _readOnly: "&[aria-readonly=true], &[readonly], &[data-readonly]",
   _before: "&::before",
   _after: "&::after",
@@ -20003,6 +20021,9 @@ function toCSSVar(rawTheme) {
   return theme;
 }
 
+// src/css.ts
+
+
 // src/system.ts
 
 var systemProps = lodash_mergewith__WEBPACK_IMPORTED_MODULE_0___default()({}, background, border, color, flexbox, layout, filter, ring, interactivity, grid, others, position, effect, space, scroll, typography, textDecoration, transform, list, transition);
@@ -20011,6 +20032,65 @@ var layoutPropNames = Object.keys(layoutSystem);
 var propNames = [...Object.keys(systemProps), ...pseudoPropNames];
 var styleProps = { ...systemProps, ...pseudoSelectors };
 var isStyleProp = (prop) => prop in styleProps;
+
+// src/utils/expand-responsive.ts
+var expandResponsive = (styles) => (theme) => {
+  if (!theme.__breakpoints)
+    return styles;
+  const { isResponsive, toArrayValue, media: medias } = theme.__breakpoints;
+  const computedStyles = {};
+  for (const key in styles) {
+    let value = runIfFn(styles[key], theme);
+    if (value == null)
+      continue;
+    value = isObject(value) && isResponsive(value) ? toArrayValue(value) : value;
+    if (!Array.isArray(value)) {
+      computedStyles[key] = value;
+      continue;
+    }
+    const queries = value.slice(0, medias.length).length;
+    for (let index = 0; index < queries; index += 1) {
+      const media = medias == null ? void 0 : medias[index];
+      if (!media) {
+        computedStyles[key] = value[index];
+        continue;
+      }
+      computedStyles[media] = computedStyles[media] || {};
+      if (value[index] == null) {
+        continue;
+      }
+      computedStyles[media][key] = value[index];
+    }
+  }
+  return computedStyles;
+};
+
+// src/utils/split-by-comma.ts
+function splitByComma(value) {
+  const chunks = [];
+  let chunk = "";
+  let inParens = false;
+  for (let i = 0; i < value.length; i++) {
+    const char = value[i];
+    if (char === "(") {
+      inParens = true;
+      chunk += char;
+    } else if (char === ")") {
+      inParens = false;
+      chunk += char;
+    } else if (char === "," && !inParens) {
+      chunks.push(chunk);
+      chunk = "";
+    } else {
+      chunk += char;
+    }
+  }
+  chunk = chunk.trim();
+  if (chunk) {
+    chunks.push(chunk);
+  }
+  return chunks;
+}
 
 // src/css.ts
 function isCssVar2(value) {
@@ -20025,79 +20105,58 @@ var resolveTokenValue = (theme, value) => {
     return (_b = (_a = theme.__cssMap) == null ? void 0 : _a[val]) == null ? void 0 : _b.varRef;
   };
   const getValue = (val) => getVar(val) ?? val;
-  const valueSplit = value.split(",").map((v) => v.trim());
-  const [tokenValue, fallbackValue] = valueSplit;
+  const [tokenValue, fallbackValue] = splitByComma(value);
   value = getVar(tokenValue) ?? getValue(fallbackValue) ?? getValue(value);
   return value;
 };
 function getCss(options) {
   const { configs = {}, pseudos = {}, theme } = options;
-  if (!theme.__breakpoints)
-    return () => ({});
-  const { isResponsive, toArrayValue, media: medias } = theme.__breakpoints;
   const css2 = (stylesOrFn, nested = false) => {
     var _a;
-    const styles = runIfFn(stylesOrFn, theme);
+    const _styles = runIfFn(stylesOrFn, theme);
+    const styles = expandResponsive(_styles)(theme);
     let computedStyles = {};
     for (let key in styles) {
-      let value = runIfFn(styles[key], theme);
-      if (value == null)
-        continue;
-      if (Array.isArray(value) || isObject(value) && isResponsive(value)) {
-        let values = Array.isArray(value) ? value : toArrayValue(value);
-        values = values.slice(0, medias.length);
-        for (let index = 0; index < values.length; index++) {
-          const media = medias[index];
-          const val = values[index];
-          if (media) {
-            if (val == null) {
-              computedStyles[media] ?? (computedStyles[media] = {});
-            } else {
-              computedStyles[media] = Object.assign({}, computedStyles[media], css2({ [key]: val }, true));
-            }
-          } else {
-            computedStyles = Object.assign({}, computedStyles, css2({ ...styles, [key]: val }, false));
-          }
-        }
-        continue;
-      }
+      const valueOrFn = styles[key];
+      let value = runIfFn(valueOrFn, theme);
       if (key in pseudos) {
         key = pseudos[key];
       }
       if (isCSSVariableTokenValue(key, value)) {
         value = resolveTokenValue(theme, value);
       }
-      if (isObject(value)) {
-        computedStyles[key] = Object.assign({}, computedStyles[key], css2(value, true));
-        continue;
-      }
       let config = configs[key];
       if (config === true) {
         config = { property: key };
       }
-      if (!nested && (config == null ? void 0 : config.static)) {
-        const staticStyles = runIfFn(config.static, theme);
-        computedStyles = Object.assign({}, computedStyles, staticStyles);
-      }
-      let rawValue = ((_a = config == null ? void 0 : config.transform) == null ? void 0 : _a.call(config, value, theme, styles)) ?? value;
-      rawValue = (config == null ? void 0 : config.processResult) ? css2(rawValue, true) : rawValue;
-      if (isObject(rawValue)) {
-        computedStyles = Object.assign({}, computedStyles, rawValue);
+      if (isObject(value)) {
+        computedStyles[key] = computedStyles[key] ?? {};
+        computedStyles[key] = lodash_mergewith__WEBPACK_IMPORTED_MODULE_0___default()({}, computedStyles[key], css2(value, true));
         continue;
       }
+      let rawValue = ((_a = config == null ? void 0 : config.transform) == null ? void 0 : _a.call(config, value, theme, _styles)) ?? value;
+      rawValue = (config == null ? void 0 : config.processResult) ? css2(rawValue, true) : rawValue;
       const configProperty = runIfFn(config == null ? void 0 : config.property, theme);
-      if (configProperty) {
-        if (Array.isArray(configProperty)) {
-          for (const property of configProperty) {
-            computedStyles[property] = rawValue;
-          }
-          continue;
+      if (!nested && (config == null ? void 0 : config.static)) {
+        const staticStyles = runIfFn(config.static, theme);
+        computedStyles = lodash_mergewith__WEBPACK_IMPORTED_MODULE_0___default()({}, computedStyles, staticStyles);
+      }
+      if (configProperty && Array.isArray(configProperty)) {
+        for (const property of configProperty) {
+          computedStyles[property] = rawValue;
         }
+        continue;
+      }
+      if (configProperty) {
         if (configProperty === "&" && isObject(rawValue)) {
-          computedStyles = Object.assign({}, computedStyles, rawValue);
+          computedStyles = lodash_mergewith__WEBPACK_IMPORTED_MODULE_0___default()({}, computedStyles, rawValue);
         } else {
           computedStyles[configProperty] = rawValue;
         }
+        continue;
+      }
+      if (isObject(rawValue)) {
+        computedStyles = lodash_mergewith__WEBPACK_IMPORTED_MODULE_0___default()({}, computedStyles, rawValue);
         continue;
       }
       computedStyles[key] = rawValue;
@@ -20229,7 +20288,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_checkbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/checkbox */ "./node_modules/@chakra-ui/checkbox/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/switch.tsx
@@ -20513,6 +20572,8 @@ function GlobalStyle() {
 
 
 
+
+
 // src/should-forward-prop.ts
 
 var allPropNames = /* @__PURE__ */ new Set([
@@ -20548,7 +20609,16 @@ function styled(component, options) {
     styledOptions.shouldForwardProp = shouldForwardProp;
   }
   const styleObject = toCSSObject({ baseStyle });
-  return (0,_emotion_styled__WEBPACK_IMPORTED_MODULE_7__["default"])(component, styledOptions)(styleObject);
+  const Component = (0,_emotion_styled__WEBPACK_IMPORTED_MODULE_7__["default"])(component, styledOptions)(styleObject);
+  const chakraComponent = react__WEBPACK_IMPORTED_MODULE_0___default().forwardRef(function ChakraComponent(props, ref) {
+    const { colorMode, forced } = (0,_chakra_ui_color_mode__WEBPACK_IMPORTED_MODULE_1__.useColorMode)();
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Component, {
+      ref,
+      "data-theme": forced ? colorMode : void 0,
+      ...props
+    });
+  });
+  return chakraComponent;
 }
 
 // src/forward-ref.tsx
@@ -20632,7 +20702,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/table.tsx
@@ -20653,7 +20723,6 @@ var Table = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.forwardRef)((props
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(TableStylesProvider, {
     value: styles
   }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.chakra.table, {
-    role: "table",
     ref,
     __css: styles.table,
     className: cx("chakra-table", className),
@@ -20747,7 +20816,6 @@ var Th = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.forwardRef)(({ isNume
 var Tr = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.forwardRef)((props, ref) => {
   const styles = useTableStyles();
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.chakra.tr, {
-    role: "row",
     ...props,
     ref,
     __css: styles.tr
@@ -20759,7 +20827,6 @@ var Tr = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.forwardRef)((props, r
 var Td = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.forwardRef)(({ isNumeric, ...rest }, ref) => {
   const styles = useTableStyles();
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.chakra.td, {
-    role: "gridcell",
     ...rest,
     ref,
     __css: styles.td,
@@ -21213,7 +21280,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-context */ "./node_modules/@chakra-ui/react-context/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/tag.tsx
@@ -21276,7 +21343,7 @@ var TagCloseIcon = (props) => /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0__
   d: "M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
 }));
 TagCloseIcon.displayName = "TagCloseIcon";
-var TagCloseButton = (props) => {
+var TagCloseButton = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.forwardRef)((props, ref) => {
   const { isDisabled, children, ...rest } = props;
   const styles = useTagStyles();
   const btnStyles = {
@@ -21287,13 +21354,14 @@ var TagCloseButton = (props) => {
     ...styles.closeButton
   };
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.chakra.button, {
+    ref,
     "aria-label": "close",
     ...rest,
     type: "button",
     disabled: isDisabled,
     __css: btnStyles
   }, children || /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(TagCloseIcon, null));
-};
+});
 TagCloseButton.displayName = "TagCloseButton";
 
 
@@ -21316,7 +21384,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_form_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/form-control */ "./node_modules/@chakra-ui/form-control/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/styled-system/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/textarea.tsx
@@ -23483,7 +23551,7 @@ var sizes14 = {
   xs: {
     ...(_g = inputTheme.sizes) == null ? void 0 : _g.xs,
     field: {
-      ...(_h = inputTheme.sizes) == null ? void 0 : _h.sm.field,
+      ...(_h = inputTheme.sizes) == null ? void 0 : _h.xs.field,
       ...iconSpacing
     },
     icon: {
@@ -25343,7 +25411,8 @@ var defaultStandaloneParam = {
   },
   setColorMode: () => {
   },
-  defaultOptions: defaults
+  defaultOptions: defaults,
+  forced: false
 };
 function createStandaloneToast({
   theme = defaultStandaloneParam.theme,
@@ -25353,9 +25422,15 @@ function createStandaloneToast({
   defaultOptions = defaultStandaloneParam.defaultOptions,
   motionVariants,
   toastSpacing,
-  component
+  component,
+  forced
 } = defaultStandaloneParam) {
-  const colorModeContextValue = { colorMode, setColorMode, toggleColorMode };
+  const colorModeContextValue = {
+    colorMode,
+    setColorMode,
+    toggleColorMode,
+    forced
+  };
   const ToastContainer = () => /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_2__.ThemeProvider, {
     theme
   }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_11__.ColorModeContext.Provider, {
@@ -25399,7 +25474,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react_use_event_listener__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react-use-event-listener */ "./node_modules/@chakra-ui/react-use-event-listener/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_use_disclosure__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react-use-disclosure */ "./node_modules/@chakra-ui/react-use-disclosure/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react-use-merge-refs */ "./node_modules/@chakra-ui/react-use-merge-refs/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/tooltip.tsx
@@ -25482,6 +25557,7 @@ function useTooltip(props = {}) {
     closeDelay = 0,
     closeOnClick = true,
     closeOnMouseDown,
+    closeOnPointerDown = closeOnMouseDown,
     closeOnEsc = true,
     onOpen: onOpenProp,
     onClose: onCloseProp,
@@ -25548,11 +25624,11 @@ function useTooltip(props = {}) {
       closeWithDelay();
     }
   }, [closeOnClick, closeWithDelay, isOpen]);
-  const onMouseDown = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
-    if (isOpen && closeOnMouseDown) {
+  const onPointerDown = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+    if (isOpen && closeOnPointerDown) {
       closeWithDelay();
     }
-  }, [closeOnMouseDown, closeWithDelay, isOpen]);
+  }, [closeOnPointerDown, closeWithDelay, isOpen]);
   const onKeyDown = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((event) => {
     if (isOpen && event.key === "Escape") {
       closeWithDelay();
@@ -25563,14 +25639,18 @@ function useTooltip(props = {}) {
     clearTimeout(enterTimeout.current);
     clearTimeout(exitTimeout.current);
   }, []);
-  (0,_chakra_ui_react_use_event_listener__WEBPACK_IMPORTED_MODULE_3__.useEventListener)(() => ref.current, "mouseleave", closeWithDelay);
+  (0,_chakra_ui_react_use_event_listener__WEBPACK_IMPORTED_MODULE_3__.useEventListener)(() => ref.current, "pointerleave", closeWithDelay);
   const getTriggerProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((props2 = {}, _ref = null) => {
     const triggerProps = {
       ...props2,
       ref: (0,_chakra_ui_react_use_merge_refs__WEBPACK_IMPORTED_MODULE_4__.mergeRefs)(ref, _ref, referenceRef),
-      onMouseEnter: callAllHandlers(props2.onMouseEnter, openWithDelay),
+      onPointerEnter: callAllHandlers(props2.onPointerEnter, (e) => {
+        if (e.pointerType === "touch")
+          return;
+        openWithDelay();
+      }),
       onClick: callAllHandlers(props2.onClick, onClick),
-      onMouseDown: callAllHandlers(props2.onMouseDown, onMouseDown),
+      onPointerDown: callAllHandlers(props2.onPointerDown, onPointerDown),
       onFocus: callAllHandlers(props2.onFocus, openWithDelay),
       onBlur: callAllHandlers(props2.onBlur, closeWithDelay),
       "aria-describedby": isOpen ? tooltipId : void 0
@@ -25579,7 +25659,7 @@ function useTooltip(props = {}) {
   }, [
     openWithDelay,
     closeWithDelay,
-    onMouseDown,
+    onPointerDown,
     isOpen,
     tooltipId,
     onClick,
@@ -25634,7 +25714,7 @@ function useCloseEvent(ref, close) {
 }
 
 // src/tooltip.tsx
-var StyledTooltip = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra)(framer_motion__WEBPACK_IMPORTED_MODULE_6__.motion.div);
+var MotionDiv = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra)(framer_motion__WEBPACK_IMPORTED_MODULE_6__.motion.div);
 var Tooltip = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.forwardRef)((props, ref) => {
   const styles = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.useStyleConfig)("Tooltip", props);
   const ownProps = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_7__.omitThemingProps)(props);
@@ -25650,6 +25730,7 @@ var Tooltip = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.forwardRef)((pro
     background,
     backgroundColor,
     bgColor,
+    motionProps,
     ...rest
   } = ownProps;
   const userDefinedBg = background ?? backgroundColor ?? bg ?? bgColor;
@@ -25663,6 +25744,7 @@ var Tooltip = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.forwardRef)((pro
   let trigger;
   if (shouldWrap) {
     trigger = /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra.span, {
+      display: "inline-block",
       tabIndex: 0,
       ...tooltip.getTriggerProps()
     }, children);
@@ -25673,7 +25755,7 @@ var Tooltip = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.forwardRef)((pro
   const hasAriaLabel = !!ariaLabel;
   const _tooltipProps = tooltip.getTooltipProps({}, ref);
   const tooltipProps = hasAriaLabel ? omit(_tooltipProps, ["role", "id"]) : _tooltipProps;
-  const hiddenProps = pick(_tooltipProps, ["role", "id"]);
+  const srOnlyProps = pick(_tooltipProps, ["role", "id"]);
   if (!label) {
     return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, children);
   }
@@ -25685,16 +25767,17 @@ var Tooltip = (0,_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.forwardRef)((pro
       zIndex: styles.zIndex,
       pointerEvents: "none"
     }
-  }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledTooltip, {
+  }, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MotionDiv, {
     variants: scale,
-    ...tooltipProps,
     initial: "exit",
     animate: "enter",
     exit: "exit",
+    ...motionProps,
+    ...tooltipProps,
     __css: styles
   }, label, hasAriaLabel && /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra.span, {
     srOnly: true,
-    ...hiddenProps
+    ...srOnlyProps
   }, ariaLabel), hasArrow && /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_system__WEBPACK_IMPORTED_MODULE_5__.chakra.div, {
     "data-popper-arrow": true,
     className: "chakra-tooltip__arrow-wrapper"
@@ -26760,15 +26843,15 @@ function isTabbable(element) {
 
 // src/dom-query.ts
 var focusableElList = [
-  "input:not([disabled])",
-  "select:not([disabled])",
-  "textarea:not([disabled])",
+  "input:not(:disabled)",
+  "select:not(:disabled)",
+  "textarea:not(:disabled)",
   "embed",
   "iframe",
   "object",
   "a[href]",
   "area[href]",
-  "button:not([disabled])",
+  "button:not(:disabled)",
   "[tabindex]",
   "audio[controls]",
   "video[controls]",
@@ -27452,7 +27535,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _chakra_ui_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/system */ "./node_modules/@chakra-ui/system/dist/index.esm.js");
-// ../../react-shim.js
+// ../../../react-shim.js
 
 
 // src/visually-hidden.tsx
@@ -34486,7 +34569,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "warning": function() { return /* binding */ warning; }
 /* harmony export */ });
 /**
- * @remix-run/router v1.0.0
+ * @remix-run/router v1.0.1
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -34563,7 +34646,7 @@ function createMemoryHistory(options) {
   } = options;
   let entries; // Declare so we can access from createMemoryLocation
 
-  entries = initialEntries.map((entry, index) => createMemoryLocation(entry, null, index === 0 ? "default" : undefined));
+  entries = initialEntries.map((entry, index) => createMemoryLocation(entry, typeof entry === "string" ? null : entry.state, index === 0 ? "default" : undefined));
   let index = clampIndex(initialIndex == null ? entries.length - 1 : initialIndex);
   let action = Action.Pop;
   let listener = null;
@@ -34666,8 +34749,6 @@ function createBrowserHistory(options) {
   }
 
   function createBrowserLocation(window, globalHistory) {
-    var _globalHistory$state, _globalHistory$state2;
-
     let {
       pathname,
       search,
@@ -34678,7 +34759,7 @@ function createBrowserHistory(options) {
       search,
       hash
     }, // state defaults to `null` because `window.history.state` does
-    ((_globalHistory$state = globalHistory.state) == null ? void 0 : _globalHistory$state.usr) || null, ((_globalHistory$state2 = globalHistory.state) == null ? void 0 : _globalHistory$state2.key) || "default");
+    globalHistory.state && globalHistory.state.usr || null, globalHistory.state && globalHistory.state.key || "default");
   }
 
   function createBrowserHref(window, to) {
@@ -34702,8 +34783,6 @@ function createHashHistory(options) {
   }
 
   function createHashLocation(window, globalHistory) {
-    var _globalHistory$state3, _globalHistory$state4;
-
     let {
       pathname = "/",
       search = "",
@@ -34714,7 +34793,7 @@ function createHashHistory(options) {
       search,
       hash
     }, // state defaults to `null` because `window.history.state` does
-    ((_globalHistory$state3 = globalHistory.state) == null ? void 0 : _globalHistory$state3.usr) || null, ((_globalHistory$state4 = globalHistory.state) == null ? void 0 : _globalHistory$state4.key) || "default");
+    globalHistory.state && globalHistory.state.usr || null, globalHistory.state && globalHistory.state.key || "default");
   }
 
   function createHashHref(window, to) {
@@ -34790,7 +34869,7 @@ function createLocation(current, to, state, key) {
     // full Locations now and avoid the need to run through this flow at all
     // But that's a pretty big refactor to the current test suite so going to
     // keep as is for the time being and just let any incoming keys take precedence
-    key: (to == null ? void 0 : to.key) || key || createKey()
+    key: to && to.key || key || createKey()
   });
 
   return location;
@@ -34866,7 +34945,7 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
   function push(to, state) {
     action = Action.Push;
     let location = createLocation(history.location, to, state);
-    validateLocation == null ? void 0 : validateLocation(location, to);
+    if (validateLocation) validateLocation(location, to);
     let historyState = getHistoryState(location);
     let url = history.createHref(location); // try...catch because iOS limits us to 100 pushState calls :/
 
@@ -34889,7 +34968,7 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
   function replace(to, state) {
     action = Action.Replace;
     let location = createLocation(history.location, to, state);
-    validateLocation == null ? void 0 : validateLocation(location, to);
+    if (validateLocation) validateLocation(location, to);
     let historyState = getHistoryState(location);
     let url = history.createHref(location);
     globalHistory.replaceState(historyState, "", url);
@@ -35481,8 +35560,6 @@ class DeferredData {
   }
 
   onSettle(promise, key, error, data) {
-    var _this$subscriber2;
-
     if (this.controller.signal.aborted && error instanceof AbortedDeferredError) {
       this.unlistenAbortSignal();
       Object.defineProperty(promise, "_error", {
@@ -35498,20 +35575,20 @@ class DeferredData {
       this.unlistenAbortSignal();
     }
 
-    if (error) {
-      var _this$subscriber;
+    const subscriber = this.subscriber;
 
+    if (error) {
       Object.defineProperty(promise, "_error", {
         get: () => error
       });
-      (_this$subscriber = this.subscriber) == null ? void 0 : _this$subscriber.call(this, false);
+      subscriber && subscriber(false);
       return Promise.reject(error);
     }
 
     Object.defineProperty(promise, "_data", {
       get: () => data
     });
-    (_this$subscriber2 = this.subscriber) == null ? void 0 : _this$subscriber2.call(this, false);
+    subscriber && subscriber(false);
     return data;
   }
 
@@ -35520,11 +35597,10 @@ class DeferredData {
   }
 
   cancel() {
-    var _this$subscriber3;
-
     this.controller.abort();
     this.pendingKeys.forEach((v, k) => this.pendingKeys.delete(k));
-    (_this$subscriber3 = this.subscriber) == null ? void 0 : _this$subscriber3.call(this, true);
+    let subscriber = this.subscriber;
+    subscriber && subscriber(true);
   }
 
   async resolveData(signal) {
@@ -35656,8 +35732,6 @@ const IDLE_FETCHER = {
  */
 
 function createRouter(init) {
-  var _init$hydrationData, _init$hydrationData2, _init$hydrationData3;
-
   invariant(init.routes.length > 0, "You must provide a non-empty routes array to createRouter");
   let dataRoutes = convertRoutesToDataRoutes(init.routes); // Cleanup function for history
 
@@ -35703,9 +35777,9 @@ function createRouter(init) {
     restoreScrollPosition: null,
     preventScrollReset: false,
     revalidation: "idle",
-    loaderData: ((_init$hydrationData = init.hydrationData) == null ? void 0 : _init$hydrationData.loaderData) || {},
-    actionData: ((_init$hydrationData2 = init.hydrationData) == null ? void 0 : _init$hydrationData2.actionData) || null,
-    errors: ((_init$hydrationData3 = init.hydrationData) == null ? void 0 : _init$hydrationData3.errors) || initialErrors,
+    loaderData: init.hydrationData && init.hydrationData.loaderData || {},
+    actionData: init.hydrationData && init.hydrationData.actionData || null,
+    errors: init.hydrationData && init.hydrationData.errors || initialErrors,
     fetchers: new Map()
   }; // -- Stateful internal variables to manage navigations --
   // Current navigation in progress (to be committed in completeNavigation)
@@ -35772,14 +35846,12 @@ function createRouter(init) {
 
 
   function dispose() {
-    var _pendingNavigationCon;
-
     if (unlistenHistory) {
       unlistenHistory();
     }
 
     subscribers.clear();
-    (_pendingNavigationCon = pendingNavigationController) == null ? void 0 : _pendingNavigationCon.abort();
+    pendingNavigationController && pendingNavigationController.abort();
     state.fetchers.forEach((_, key) => deleteFetcher(key));
   } // Subscribe to state updates for the router
 
@@ -35855,8 +35927,8 @@ function createRouter(init) {
       submission,
       error
     } = normalizeNavigateOptions(to, opts);
-    let location = createLocation(state.location, path, opts == null ? void 0 : opts.state);
-    let historyAction = (opts == null ? void 0 : opts.replace) === true || submission != null ? Action.Replace : Action.Push;
+    let location = createLocation(state.location, path, opts && opts.state);
+    let historyAction = (opts && opts.replace) === true || submission != null ? Action.Replace : Action.Push;
     let preventScrollReset = opts && "preventScrollReset" in opts ? opts.preventScrollReset === true : undefined;
     return await startNavigation(historyAction, location, {
       submission,
@@ -35864,7 +35936,7 @@ function createRouter(init) {
       // render at the right error boundary after we match routes
       pendingError: error,
       preventScrollReset,
-      replace: opts == null ? void 0 : opts.replace
+      replace: opts && opts.replace
     });
   } // Revalidate all current loaders.  If a navigation is in progress or if this
   // is interrupted by a navigation, allow this to "succeed" by calling all
@@ -35904,20 +35976,18 @@ function createRouter(init) {
 
 
   async function startNavigation(historyAction, location, opts) {
-    var _pendingNavigationCon2;
-
     // Abort any in-progress navigations and start a new one. Unset any ongoing
     // uninterrupted revalidations unless told otherwise, since we want this
     // new navigation to update history normally
-    (_pendingNavigationCon2 = pendingNavigationController) == null ? void 0 : _pendingNavigationCon2.abort();
+    pendingNavigationController && pendingNavigationController.abort();
     pendingNavigationController = null;
     pendingAction = historyAction;
-    isUninterruptedRevalidation = (opts == null ? void 0 : opts.startUninterruptedRevalidation) === true; // Save the current scroll position every time we start a new navigation,
+    isUninterruptedRevalidation = (opts && opts.startUninterruptedRevalidation) === true; // Save the current scroll position every time we start a new navigation,
     // and track whether we should reset scroll on completion
 
     saveScrollPosition(state.location, state.matches);
-    pendingPreventScrollReset = (opts == null ? void 0 : opts.preventScrollReset) === true;
-    let loadingNavigation = opts == null ? void 0 : opts.overrideNavigation;
+    pendingPreventScrollReset = (opts && opts.preventScrollReset) === true;
+    let loadingNavigation = opts && opts.overrideNavigation;
     let matches = matchRoutes(dataRoutes, location, init.basename); // Short circuit with a 404 on the root error boundary if we match nothing
 
     if (!matches) {
@@ -35948,11 +36018,11 @@ function createRouter(init) {
 
 
     pendingNavigationController = new AbortController();
-    let request = createRequest(location, pendingNavigationController.signal, opts == null ? void 0 : opts.submission);
+    let request = createRequest(location, pendingNavigationController.signal, opts && opts.submission);
     let pendingActionData;
     let pendingError;
 
-    if (opts != null && opts.pendingError) {
+    if (opts && opts.pendingError) {
       // If we have a pendingError, it means the user attempted a GET submission
       // with binary FormData so assign here and skip to handleLoaders.  That
       // way we handle calling loaders above the boundary etc.  It's not really
@@ -35960,7 +36030,7 @@ function createRouter(init) {
       pendingError = {
         [findNearestBoundary(matches).route.id]: opts.pendingError
       };
-    } else if (opts != null && opts.submission) {
+    } else if (opts && opts.submission) {
       // Call action if we received an action submission
       let actionOutput = await handleAction(request, location, opts.submission, matches, {
         replace: opts.replace
@@ -35986,7 +36056,7 @@ function createRouter(init) {
       shortCircuited,
       loaderData,
       errors
-    } = await handleLoaders(request, location, matches, loadingNavigation, opts == null ? void 0 : opts.submission, opts == null ? void 0 : opts.replace, pendingActionData, pendingError);
+    } = await handleLoaders(request, location, matches, loadingNavigation, opts && opts.submission, opts && opts.replace, pendingActionData, pendingError);
 
     if (shortCircuited) {
       return;
@@ -36038,7 +36108,7 @@ function createRouter(init) {
         location: createLocation(state.location, result.location)
       }, submission);
 
-      await startRedirectNavigation(result, redirectNavigation, opts == null ? void 0 : opts.replace);
+      await startRedirectNavigation(result, redirectNavigation, opts && opts.replace);
       return {
         shortCircuited: true
       };
@@ -36052,7 +36122,7 @@ function createRouter(init) {
       // back to PUSH so that the user can use the back button to get back to
       // the pre-submission form location to try again
 
-      if ((opts == null ? void 0 : opts.replace) !== true) {
+      if ((opts && opts.replace) !== true) {
         pendingAction = Action.Push;
       }
 
@@ -36096,7 +36166,7 @@ function createRouter(init) {
     // about to reload.  Note that if this is an action reload we would have
     // already cancelled all pending deferreds so this would be a no-op
 
-    cancelActiveDeferreds(routeId => !(matches != null && matches.some(m => m.route.id === routeId)) || (matchesToLoad == null ? void 0 : matchesToLoad.some(m => m.route.id === routeId))); // Short circuit if we have no loaders to run
+    cancelActiveDeferreds(routeId => !(matches && matches.some(m => m.route.id === routeId)) || matchesToLoad && matchesToLoad.some(m => m.route.id === routeId)); // Short circuit if we have no loaders to run
 
     if (matchesToLoad.length === 0 && revalidatingFetchers.length === 0) {
       completeNavigation(location, {
@@ -36117,12 +36187,11 @@ function createRouter(init) {
 
     if (!isUninterruptedRevalidation) {
       revalidatingFetchers.forEach(_ref2 => {
-        var _state$fetchers$get;
-
         let [key] = _ref2;
+        const fetcher = state.fetchers.get(key);
         let revalidatingFetcher = {
           state: "loading",
-          data: (_state$fetchers$get = state.fetchers.get(key)) == null ? void 0 : _state$fetchers$get.data,
+          data: fetcher && fetcher.data,
           formMethod: undefined,
           formAction: undefined,
           formEncType: undefined,
@@ -36220,7 +36289,7 @@ function createRouter(init) {
     let {
       path,
       submission
-    } = normalizeNavigateOptions(href, opts);
+    } = normalizeNavigateOptions(href, opts, true);
     let match = getTargetMatch(matches, path);
 
     if (submission) {
@@ -36237,8 +36306,6 @@ function createRouter(init) {
 
 
   async function handleFetcherAction(key, routeId, path, match, submission) {
-    var _state$fetchers$get2;
-
     interruptActiveLoads();
     fetchLoadMatches.delete(key);
 
@@ -36251,10 +36318,12 @@ function createRouter(init) {
     } // Put this fetcher into it's submitting state
 
 
+    let existingFetcher = state.fetchers.get(key);
+
     let fetcher = _extends({
       state: "submitting"
     }, submission, {
-      data: ((_state$fetchers$get2 = state.fetchers.get(key)) == null ? void 0 : _state$fetchers$get2.data) || undefined
+      data: existingFetcher && existingFetcher.data
     });
 
     state.fetchers.set(key, fetcher);
@@ -36337,12 +36406,11 @@ function createRouter(init) {
       let [staleKey] = _ref5;
       return staleKey !== key;
     }).forEach(_ref6 => {
-      var _state$fetchers$get3;
-
       let [staleKey] = _ref6;
+      let existingFetcher = state.fetchers.get(staleKey);
       let revalidatingFetcher = {
         state: "loading",
-        data: (_state$fetchers$get3 = state.fetchers.get(staleKey)) == null ? void 0 : _state$fetchers$get3.data,
+        data: existingFetcher && existingFetcher.data,
         formMethod: undefined,
         formAction: undefined,
         formEncType: undefined,
@@ -36397,10 +36465,8 @@ function createRouter(init) {
     // navigation and complete it with the fetcher data
 
     if (state.navigation.state === "loading" && loadId > pendingNavigationLoadId) {
-      var _pendingNavigationCon3;
-
       invariant(pendingAction, "Expected pending action");
-      (_pendingNavigationCon3 = pendingNavigationController) == null ? void 0 : _pendingNavigationCon3.abort();
+      pendingNavigationController && pendingNavigationController.abort();
       completeNavigation(state.navigation.location, {
         matches,
         loaderData,
@@ -36423,16 +36489,15 @@ function createRouter(init) {
 
 
   async function handleFetcherLoader(key, routeId, path, match) {
-    var _state$fetchers$get4;
+    let existingFetcher = state.fetchers.get(key); // Put this fetcher into it's loading state
 
-    // Put this fetcher into it's loading state
     let loadingFetcher = {
       state: "loading",
       formMethod: undefined,
       formAction: undefined,
       formEncType: undefined,
       formData: undefined,
-      data: ((_state$fetchers$get4 = state.fetchers.get(key)) == null ? void 0 : _state$fetchers$get4.data) || undefined
+      data: existingFetcher && existingFetcher.data
     };
     state.fetchers.set(key, loadingFetcher);
     updateState({
@@ -37031,7 +37096,11 @@ function getStaticContextFromError(routes, context, error) {
 } // Normalize navigation options by converting formMethod=GET formData objects to
 // URLSearchParams so they behave identically to links with query params
 
-function normalizeNavigateOptions(to, opts) {
+function normalizeNavigateOptions(to, opts, isFetcher) {
+  if (isFetcher === void 0) {
+    isFetcher = false;
+  }
+
   let path = typeof to === "string" ? to : createPath(to); // Return location verbatim on non-submission navigations
 
   if (!opts || !("formMethod" in opts) && !("formData" in opts)) {
@@ -37047,7 +37116,7 @@ function normalizeNavigateOptions(to, opts) {
       submission: {
         formMethod: opts.formMethod,
         formAction: createHref(parsePath(path)),
-        formEncType: (opts == null ? void 0 : opts.formEncType) || "application/x-www-form-urlencoded",
+        formEncType: opts && opts.formEncType || "application/x-www-form-urlencoded",
         formData: opts.formData
       }
     };
@@ -37064,7 +37133,14 @@ function normalizeNavigateOptions(to, opts) {
   let parsedPath = parsePath(path);
 
   try {
-    let searchParams = convertFormDataToSearchParams(opts.formData);
+    let searchParams = convertFormDataToSearchParams(opts.formData); // Since fetcher GET submissions only run a single loader (as opposed to
+    // navigation GET submissions which run all loaders), we need to preserve
+    // any incoming ?index params
+
+    if (isFetcher && parsedPath.search && hasNakedIndexQuery(parsedPath.search)) {
+      searchParams.append("index", "");
+    }
+
     parsedPath.search = "?" + searchParams;
   } catch (e) {
     return {
@@ -37121,7 +37197,7 @@ function getMatchesToLoad(state, matches, submission, location, isRevalidationRe
   cancelledDeferredRoutes.some(id => id === match.route.id) || shouldRevalidateLoader(state.location, state.matches[index], submission, location, match, isRevalidationRequired, actionResult))); // Pick fetcher.loads that need to be revalidated
 
   let revalidatingFetchers = [];
-  fetchLoadMatches == null ? void 0 : fetchLoadMatches.forEach((_ref10, key) => {
+  fetchLoadMatches && fetchLoadMatches.forEach((_ref10, key) => {
     let [href, match] = _ref10;
 
     // This fetcher was cancelled from a prior action submission - force reload
@@ -37150,12 +37226,11 @@ function isNewLoader(currentLoaderData, currentMatch, match) {
 }
 
 function isNewRouteInstance(currentMatch, match) {
-  var _currentMatch$route$p;
-
+  let currentPath = currentMatch.route.path;
   return (// param change for this match, /users/123 -> /users/456
     currentMatch.pathname !== match.pathname || // splat param changed, which is not present in match.path
     // e.g. /files/images/avatar.jpg -> files/finances.xls
-    ((_currentMatch$route$p = currentMatch.route.path) == null ? void 0 : _currentMatch$route$p.endsWith("*")) && currentMatch.params["*"] !== match.params["*"]
+    currentPath && currentPath.endsWith("*") && currentMatch.params["*"] !== match.params["*"]
   );
 }
 
@@ -37228,8 +37303,6 @@ async function callLoaderOrAction(type, request, match, skipRedirects, isRouteRe
   }
 
   if (result instanceof Response) {
-    var _result$headers$get;
-
     // Process redirects
     let status = result.status;
     let location = result.headers.get("Location"); // For SSR single-route requests, we want to hand Responses back directly
@@ -37256,8 +37329,9 @@ async function callLoaderOrAction(type, request, match, skipRedirects, isRouteRe
     }
 
     let data;
+    let contentType = result.headers.get("Content-Type");
 
-    if ((_result$headers$get = result.headers.get("Content-Type")) != null && _result$headers$get.startsWith("application/json")) {
+    if (contentType && contentType.startsWith("application/json")) {
       data = await result.json();
     } else {
       data = await result.text();
@@ -37369,7 +37443,7 @@ function processRouteLoaderData(matches, matchesToLoad, results, pendingError, a
         loaderHeaders[id] = result.headers;
       }
     } else if (isDeferredResult(result)) {
-      activeDeferreds == null ? void 0 : activeDeferreds.set(id, result.deferredData);
+      activeDeferreds && activeDeferreds.set(id, result.deferredData);
       loaderData[id] = result.deferredData.data; // TODO: Add statusCode/headers once we wire up streaming in Remix
     } else {
       loaderData[id] = result.data; // Error status codes always override success status codes, but if all
@@ -37410,11 +37484,9 @@ function processLoaderData(state, matches, matchesToLoad, results, pendingError,
     let result = fetcherResults[index]; // Process fetcher non-redirect errors
 
     if (isErrorResult(result)) {
-      var _errors;
-
       let boundaryMatch = findNearestBoundary(state.matches, match.route.id);
 
-      if (!((_errors = errors) != null && _errors[boundaryMatch.route.id])) {
+      if (!(errors && errors[boundaryMatch.route.id])) {
         errors = _extends({}, errors, {
           [boundaryMatch.route.id]: result.error
         });
@@ -37524,7 +37596,7 @@ function isErrorResult(result) {
 }
 
 function isRedirectResult(result) {
-  return (result == null ? void 0 : result.type) === ResultType.redirect;
+  return (result && result.type) === ResultType.redirect;
 }
 
 async function resolveDeferredResults(currentMatches, matchesToLoad, results, signal, isFetcher, currentLoaderData) {
@@ -37532,7 +37604,7 @@ async function resolveDeferredResults(currentMatches, matchesToLoad, results, si
     let result = results[index];
     let match = matchesToLoad[index];
     let currentMatch = currentMatches.find(m => m.route.id === match.route.id);
-    let isRevalidatingLoader = currentMatch != null && !isNewRouteInstance(currentMatch, match) && (currentLoaderData == null ? void 0 : currentLoaderData[match.route.id]) !== undefined;
+    let isRevalidatingLoader = currentMatch != null && !isNewRouteInstance(currentMatch, match) && (currentLoaderData && currentLoaderData[match.route.id]) !== undefined;
 
     if (isDeferredResult(result) && (isFetcher || isRevalidatingLoader)) {
       // Note: we do not have to touch activeDeferreds here since we race them
@@ -40285,10 +40357,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MenuIconButton": function() { return /* binding */ MenuIconButton; }
 /* harmony export */ });
+/* harmony import */ var _chakra_ui_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/icons */ "./node_modules/@chakra-ui/icons/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/index.esm.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/index.esm.js");
-/* harmony import */ var _chakra_ui_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/icons */ "./node_modules/@chakra-ui/icons/dist/index.esm.js");
 
 
 
@@ -40320,9 +40392,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "PrimaryButton": function() { return /* binding */ PrimaryButton; }
 /* harmony export */ });
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/index.esm.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/index.esm.js");
 
 
 var PrimaryButton = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (props) {
@@ -40357,10 +40429,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MenuDrawer": function() { return /* binding */ MenuDrawer; }
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/modal/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/index.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
 var MenuDrawer = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (props) {
@@ -40411,10 +40483,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Header": function() { return /* binding */ Header; }
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/hooks/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/index.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _atoms_button_MenuIconButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../atoms/button/MenuIconButton */ "./src/components/atoms/button/MenuIconButton.tsx");
 /* harmony import */ var _molecules_MenuDrawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../molecules/MenuDrawer */ "./src/components/molecules/MenuDrawer.tsx");
@@ -40486,6 +40558,183 @@ var Header = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (
 
 /***/ }),
 
+/***/ "./src/components/organisms/user/UserCard.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/organisms/user/UserCard.tsx ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserCard": function() { return /* binding */ UserCard; }
+/* harmony export */ });
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/index.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var UserCard = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (props) {
+  var id = props.id,
+      imageUrl = props.imageUrl,
+      userName = props.userName,
+      fullName = props.fullName,
+      _onClick = props.onClick;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Box, {
+    w: "260px",
+    h: "260px",
+    bg: "white",
+    borderRadius: "10px",
+    shadow: "md",
+    _hover: {
+      cursor: 'pointer',
+      opacity: 0.8
+    },
+    onClick: function onClick() {
+      return _onClick(id);
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Stack, {
+    textAlign: "center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Image, {
+    m: "auto",
+    p: 4,
+    boxSize: "160px",
+    borderRadius: "full",
+    src: imageUrl,
+    alt: userName
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {
+    fontSize: "lg",
+    fontWeight: "bold"
+  }, userName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {
+    fontSize: "sm",
+    color: "gray"
+  }, fullName)));
+});
+
+/***/ }),
+
+/***/ "./src/components/organisms/user/UserDetailModal.tsx":
+/*!***********************************************************!*\
+  !*** ./src/components/organisms/user/UserDetailModal.tsx ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserDetailModal": function() { return /* binding */ UserDetailModal; }
+/* harmony export */ });
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/modal/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/form-control/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/index.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _atoms_button_PrimaryButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../atoms/button/PrimaryButton */ "./src/components/atoms/button/PrimaryButton.tsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var UserDetailModal = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (props) {
+  var user = props.user,
+      isOpen = props.isOpen,
+      _props$isAdmin = props.isAdmin,
+      isAdmin = _props$isAdmin === void 0 ? false : _props$isAdmin,
+      onClose = props.onClose;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      username = _useState2[0],
+      setUsername = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      name = _useState4[0],
+      setName = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      email = _useState6[0],
+      setEmail = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      phone = _useState8[0],
+      setPhone = _useState8[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var _user$username, _user$name, _user$email, _user$phone;
+
+    setUsername((_user$username = user === null || user === void 0 ? void 0 : user.username) !== null && _user$username !== void 0 ? _user$username : '');
+    setName((_user$name = user === null || user === void 0 ? void 0 : user.name) !== null && _user$name !== void 0 ? _user$name : '');
+    setEmail((_user$email = user === null || user === void 0 ? void 0 : user.email) !== null && _user$email !== void 0 ? _user$email : '');
+    setPhone((_user$phone = user === null || user === void 0 ? void 0 : user.phone) !== null && _user$phone !== void 0 ? _user$phone : '');
+  }, [user]);
+
+  var onChangeUserName = function onChangeUserName(e) {
+    return setUsername(e.target.value);
+  };
+
+  var onChangeName = function onChangeName(e) {
+    return setName(e.target.value);
+  };
+
+  var onChangeEmail = function onChangeEmail(e) {
+    return setEmail(e.target.value);
+  };
+
+  var onChangePhone = function onChangePhone(e) {
+    return setPhone(e.target.value);
+  };
+
+  var onClickUpdate = function onClickUpdate() {
+    return alert();
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Modal, {
+    isOpen: isOpen,
+    onClose: onClose,
+    autoFocus: false,
+    motionPreset: "slideInBottom"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.ModalOverlay, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.ModalContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.ModalHeader, null, "\u30E6\u30FC\u30B6\u30FC\u8A73\u7D30"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.ModalCloseButton, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.ModalBody, {
+    mx: 4
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Stack, {
+    spacing: 4
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.FormControl, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.FormLabel, null, "User Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Input, {
+    value: username,
+    onChange: onChangeUserName,
+    isReadOnly: !isAdmin
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.FormControl, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.FormLabel, null, "Full Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Input, {
+    value: name,
+    onChange: onChangeName,
+    isReadOnly: !isAdmin
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.FormControl, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.FormLabel, null, "Mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Input, {
+    value: email,
+    onChange: onChangeEmail,
+    isReadOnly: !isAdmin
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.FormControl, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.FormLabel, null, "Tel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Input, {
+    value: phone,
+    onChange: onChangePhone,
+    isReadOnly: !isAdmin
+  })))), isAdmin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.ModalFooter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_atoms_button_PrimaryButton__WEBPACK_IMPORTED_MODULE_1__.PrimaryButton, {
+    onClick: onClickUpdate
+  }, "\u66F4\u65B0"))));
+});
+
+/***/ }),
+
 /***/ "./src/components/pages/Home.tsx":
 /*!***************************************!*\
   !*** ./src/components/pages/Home.tsx ***!
@@ -40517,12 +40766,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Login": function() { return /* binding */ Login; }
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/index.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/index.esm.js");
-/* harmony import */ var _atoms_button_PrimaryButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/button/PrimaryButton */ "./src/components/atoms/button/PrimaryButton.tsx");
-/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useAuth */ "./src/hooks/useAuth.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useAuth */ "./src/hooks/useAuth.ts");
+/* harmony import */ var _atoms_button_PrimaryButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/button/PrimaryButton */ "./src/components/atoms/button/PrimaryButton.tsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -40540,7 +40789,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Login = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function () {
-  var _useAuth = (0,_hooks_useAuth__WEBPACK_IMPORTED_MODULE_2__.useAuth)(),
+  var _useAuth = (0,_hooks_useAuth__WEBPACK_IMPORTED_MODULE_1__.useAuth)(),
       login = _useAuth.login,
       loading = _useAuth.loading;
 
@@ -40581,7 +40830,7 @@ var Login = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function ()
     placeholder: "\u30E6\u30FC\u30B6\u30FCID",
     value: userId,
     onChange: onChangeUserId
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_atoms_button_PrimaryButton__WEBPACK_IMPORTED_MODULE_1__.PrimaryButton, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_atoms_button_PrimaryButton__WEBPACK_IMPORTED_MODULE_2__.PrimaryButton, {
     disabled: userId === '',
     loading: loading,
     onClick: onClickLogin
@@ -40641,11 +40890,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "UserManagement": function() { return /* binding */ UserManagement; }
 /* harmony export */ });
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/hooks/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/index.esm.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useAllUsers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useAllUsers */ "./src/hooks/useAllUsers.ts");
+/* harmony import */ var _hooks_useLoginUser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useLoginUser */ "./src/hooks/useLoginUser.ts");
+/* harmony import */ var _hooks_useSelectUsers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/useSelectUsers */ "./src/hooks/useSelectUsers.ts");
+/* harmony import */ var _organisms_user_UserCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../organisms/user/UserCard */ "./src/components/organisms/user/UserCard.tsx");
+/* harmony import */ var _organisms_user_UserDetailModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../organisms/user/UserDetailModal */ "./src/components/organisms/user/UserDetailModal.tsx");
+
+
+
+
+
+
 
 var UserManagement = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function () {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "\u30E6\u30FC\u30B6\u30FC\u7BA1\u7406\u30DA\u30FC\u30B8\u3067\u3059");
+  var _useDisclosure = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.useDisclosure)(),
+      isOpen = _useDisclosure.isOpen,
+      onOpen = _useDisclosure.onOpen,
+      onClose = _useDisclosure.onClose;
+
+  var _useAllUsers = (0,_hooks_useAllUsers__WEBPACK_IMPORTED_MODULE_1__.useAllUsers)(),
+      getUsers = _useAllUsers.getUsers,
+      users = _useAllUsers.users,
+      loading = _useAllUsers.loading;
+
+  var _useSelectUser = (0,_hooks_useSelectUsers__WEBPACK_IMPORTED_MODULE_3__.useSelectUser)(),
+      onSelectUser = _useSelectUser.onSelectUser,
+      selectedUser = _useSelectUser.selectedUser;
+
+  var _useLoginUser = (0,_hooks_useLoginUser__WEBPACK_IMPORTED_MODULE_2__.useLoginUser)(),
+      loginUser = _useLoginUser.loginUser;
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    return getUsers();
+  }, [getUsers]);
+  var onClickUser = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (id) {
+    onSelectUser({
+      id: id,
+      users: users,
+      onOpen: onOpen
+    });
+  }, [onOpen, onSelectUser, users]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Center, {
+    h: "100vh"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Spinner, null)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Wrap, {
+    p: {
+      base: 4,
+      md: 10
+    },
+    justify: "space-around"
+  }, users.map(function (user) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.WrapItem, {
+      key: user.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_organisms_user_UserCard__WEBPACK_IMPORTED_MODULE_4__.UserCard, {
+      id: user.id,
+      imageUrl: "https://picsum.photos/300/300",
+      userName: user.username,
+      fullName: user.name,
+      onClick: onClickUser
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_organisms_user_UserDetailModal__WEBPACK_IMPORTED_MODULE_5__.UserDetailModal, {
+    user: selectedUser,
+    isOpen: isOpen,
+    onClose: onClose,
+    isAdmin: loginUser.isAdmin
+  }));
 });
 
 /***/ }),
@@ -40673,22 +40986,21 @@ var HeaderLayout = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(func
 
 /***/ }),
 
-/***/ "./src/hooks/useAuth.ts":
-/*!******************************!*\
-  !*** ./src/hooks/useAuth.ts ***!
-  \******************************/
+/***/ "./src/hooks/useAllUsers.ts":
+/*!**********************************!*\
+  !*** ./src/hooks/useAllUsers.ts ***!
+  \**********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useAuth": function() { return /* binding */ useAuth; }
+/* harmony export */   "useAllUsers": function() { return /* binding */ useAllUsers; }
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _useMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useMessage */ "./src/hooks/useMessage.ts");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -40705,40 +41017,153 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-var useAuth = function useAuth() {
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
-
+var useAllUsers = function useAllUsers() {
   var _useMessage = (0,_useMessage__WEBPACK_IMPORTED_MODULE_2__.useMessage)(),
       showMessage = _useMessage.showMessage;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       loading = _useState2[0],
       setLoading = _useState2[1];
 
-  var login = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (id) {
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      users = _useState4[0],
+      setUsers = _useState4[1];
+
+  var getUsers = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function () {
     setLoading(true);
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get("https://jsonplaceholder.typicode.com/users/".concat(id)).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('https://jsonplaceholder.typicode.com/users').then(function (res) {
+      return setUsers(res.data);
+    }).catch(function () {
+      showMessage({
+        title: 'ユーザー取得に失敗しました',
+        status: 'error'
+      });
+    }).finally(function () {
+      return setLoading(false);
+    });
+  }, [showMessage]);
+  return {
+    getUsers: getUsers,
+    loading: loading,
+    users: users
+  };
+};
+
+/***/ }),
+
+/***/ "./src/hooks/useAuth.ts":
+/*!******************************!*\
+  !*** ./src/hooks/useAuth.ts ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useAuth": function() { return /* binding */ useAuth; }
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _useLoginUser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useLoginUser */ "./src/hooks/useLoginUser.ts");
+/* harmony import */ var _useMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./useMessage */ "./src/hooks/useMessage.ts");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var useAuth = function useAuth() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+
+  var _useMessage = (0,_useMessage__WEBPACK_IMPORTED_MODULE_3__.useMessage)(),
+      showMessage = _useMessage.showMessage;
+
+  var _useLoginUser = (0,_useLoginUser__WEBPACK_IMPORTED_MODULE_2__.useLoginUser)(),
+      setLoginUser = _useLoginUser.setLoginUser;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      loading = _useState2[0],
+      setLoading = _useState2[1];
+
+  var login = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (id) {
+    setLoading(true);
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("https://jsonplaceholder.typicode.com/users/".concat(id)).then(function (res) {
       if (res.data) {
+        var isAdmin = res.data.id === 10;
+        setLoginUser(_objectSpread(_objectSpread({}, res.data), {}, {
+          isAdmin: isAdmin
+        }));
         showMessage({
           title: 'ログインしました',
           status: 'success'
         });
         navigate('/home');
       } else {
-        alert('ユーザーが見つかりません');
+        showMessage({
+          title: 'ユーザーが見つかりません',
+          status: 'error'
+        });
+        setLoading(false);
       }
     }).catch(function () {
-      return alert('ログインできません');
+      showMessage({
+        title: 'ログインできません',
+        status: 'error'
+      });
+      setLoading(false);
     }).finally(function () {
       return setLoading(false);
     });
-  }, [navigate, showMessage]);
+  }, [navigate, showMessage, setLoginUser]);
   return {
     login: login,
     loading: loading
   };
+};
+
+/***/ }),
+
+/***/ "./src/hooks/useLoginUser.ts":
+/*!***********************************!*\
+  !*** ./src/hooks/useLoginUser.ts ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useLoginUser": function() { return /* binding */ useLoginUser; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _providers_LoginUserProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../providers/LoginUserProvider */ "./src/providers/LoginUserProvider.tsx");
+
+
+var useLoginUser = function useLoginUser() {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_providers_LoginUserProvider__WEBPACK_IMPORTED_MODULE_1__.LoginUserContext);
 };
 
 /***/ }),
@@ -40775,6 +41200,106 @@ var useMessage = function useMessage() {
   return {
     showMessage: showMessage
   };
+};
+
+/***/ }),
+
+/***/ "./src/hooks/useSelectUsers.ts":
+/*!*************************************!*\
+  !*** ./src/hooks/useSelectUsers.ts ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useSelectUser": function() { return /* binding */ useSelectUser; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+ // 選択したユーザー情報を特定し、モーダルを表示するカスタムフック
+
+var useSelectUser = function useSelectUser() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      selectedUser = _useState2[0],
+      setSelectedUser = _useState2[1];
+
+  var onSelectUser = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (props) {
+    var id = props.id,
+        users = props.users,
+        onOpen = props.onOpen;
+    var targetUser = users.find(function (user) {
+      return user.id === id;
+    });
+    setSelectedUser(targetUser !== null && targetUser !== void 0 ? targetUser : null);
+    onOpen();
+  }, []);
+  return {
+    onSelectUser: onSelectUser,
+    selectedUser: selectedUser
+  };
+};
+
+/***/ }),
+
+/***/ "./src/providers/LoginUserProvider.tsx":
+/*!*********************************************!*\
+  !*** ./src/providers/LoginUserProvider.tsx ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LoginUserContext": function() { return /* binding */ LoginUserContext; },
+/* harmony export */   "LoginUserProvider": function() { return /* binding */ LoginUserProvider; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+var LoginUserContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({});
+var LoginUserProvider = function LoginUserProvider(props) {
+  var children = props.children;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      loginUser = _useState2[0],
+      setLoginUser = _useState2[1];
+
+  var value = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
+    return {
+      loginUser: loginUser,
+      setLoginUser: setLoginUser
+    };
+  }, [loginUser]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(LoginUserContext.Provider, {
+    value: value
+  }, children);
 };
 
 /***/ }),
@@ -40825,11 +41350,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _components_pages_Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/pages/Login */ "./src/components/pages/Login.tsx");
 /* harmony import */ var _components_pages_Page404__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/Page404 */ "./src/components/pages/Page404.tsx");
 /* harmony import */ var _components_templates_HeaderLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/templates/HeaderLayout */ "./src/components/templates/HeaderLayout.tsx");
-/* harmony import */ var _HomeRoutes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HomeRoutes */ "./src/router/HomeRoutes.tsx");
+/* harmony import */ var _providers_LoginUserProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../providers/LoginUserProvider */ "./src/providers/LoginUserProvider.tsx");
+/* harmony import */ var _HomeRoutes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./HomeRoutes */ "./src/router/HomeRoutes.tsx");
+
 
 
 
@@ -40837,21 +41364,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Router = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function () {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_providers_LoginUserProvider__WEBPACK_IMPORTED_MODULE_4__.LoginUserProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_pages_Login__WEBPACK_IMPORTED_MODULE_1__.Login, null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/home"
-  }, _HomeRoutes__WEBPACK_IMPORTED_MODULE_4__.homeRoutes.map(function (route) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+  }, _HomeRoutes__WEBPACK_IMPORTED_MODULE_5__.homeRoutes.map(function (route) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
       key: route.path,
       path: "/home".concat(route.path),
       element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_templates_HeaderLayout__WEBPACK_IMPORTED_MODULE_3__.HeaderLayout, null, route.element)
     });
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "*",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_pages_Page404__WEBPACK_IMPORTED_MODULE_2__.Page404, null)
-  }));
+  })));
 });
 
 /***/ }),
@@ -41309,7 +41836,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _solver__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./solver */ "./node_modules/focus-lock/dist/es2015/solver.js");
 /* harmony import */ var _utils_DOMutils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/DOMutils */ "./node_modules/focus-lock/dist/es2015/utils/DOMutils.js");
 /* harmony import */ var _utils_all_affected__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/all-affected */ "./node_modules/focus-lock/dist/es2015/utils/all-affected.js");
-/* harmony import */ var _utils_firstFocus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/firstFocus */ "./node_modules/focus-lock/dist/es2015/utils/firstFocus.js");
+/* harmony import */ var _utils_auto_focus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/auto-focus */ "./node_modules/focus-lock/dist/es2015/utils/auto-focus.js");
 /* harmony import */ var _utils_getActiveElement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/getActiveElement */ "./node_modules/focus-lock/dist/es2015/utils/getActiveElement.js");
 /* harmony import */ var _utils_is__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/is */ "./node_modules/focus-lock/dist/es2015/utils/is.js");
 /* harmony import */ var _utils_parenting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/parenting */ "./node_modules/focus-lock/dist/es2015/utils/parenting.js");
@@ -41320,11 +41847,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var findAutoFocused = function (autoFocusables) {
-    return function (node) { var _a; 
-    // @ts-expect-error
-    return node.autofocus || !!((_a = (0,_utils_is__WEBPACK_IMPORTED_MODULE_0__.getDataset)(node)) === null || _a === void 0 ? void 0 : _a.autofocus) || autoFocusables.indexOf(node) >= 0; };
-};
 var reorderNodes = function (srcNodes, dstNodes) {
     var remap = new Map();
     // no Set(dstNodes) for IE11 :(
@@ -41364,15 +41886,7 @@ var getFocusMerge = function (topNode, lastNode) {
     });
     var newId = (0,_solver__WEBPACK_IMPORTED_MODULE_5__.newFocus)(innerNodes, outerNodes, activeElement, lastNode);
     if (newId === _solver__WEBPACK_IMPORTED_MODULE_5__.NEW_FOCUS) {
-        var autoFocusable = (0,_utils_DOMutils__WEBPACK_IMPORTED_MODULE_4__.filterAutoFocusable)(anyFocusable.map(function (_a) {
-            var node = _a.node;
-            return node;
-        })).filter(findAutoFocused((0,_utils_parenting__WEBPACK_IMPORTED_MODULE_3__.allParentAutofocusables)(entries, visibilityCache)));
-        return {
-            node: autoFocusable && autoFocusable.length
-                ? (0,_utils_firstFocus__WEBPACK_IMPORTED_MODULE_6__.pickFirstFocus)(autoFocusable)
-                : (0,_utils_firstFocus__WEBPACK_IMPORTED_MODULE_6__.pickFirstFocus)((0,_utils_DOMutils__WEBPACK_IMPORTED_MODULE_4__.filterAutoFocusable)(innerNodes)),
-        };
+        return { node: (0,_utils_auto_focus__WEBPACK_IMPORTED_MODULE_6__.pickAutofocus)(anyFocusable, innerNodes, (0,_utils_parenting__WEBPACK_IMPORTED_MODULE_3__.allParentAutofocusables)(entries, visibilityCache)) };
     }
     if (newId === undefined) {
         return newId;
@@ -41790,10 +42304,16 @@ var parentAutofocusables = function (topNode, visibilityCache) {
  * Determines if element is contained in scope, including nested shadow DOMs
  */
 var contains = function (scope, element) {
-    return ((scope.shadowRoot
-        ? contains(scope.shadowRoot, element)
-        : Object.getPrototypeOf(scope).contains.call(scope, element)) ||
-        (0,_array__WEBPACK_IMPORTED_MODULE_0__.toArray)(scope.children).some(function (child) { return contains(child, element); }));
+    if (scope.shadowRoot) {
+        return contains(scope.shadowRoot, element);
+    }
+    else {
+        if (Object.getPrototypeOf(scope).contains !== undefined &&
+            Object.getPrototypeOf(scope).contains.call(scope, element)) {
+            return true;
+        }
+        return (0,_array__WEBPACK_IMPORTED_MODULE_0__.toArray)(scope.children).some(function (child) { return contains(child, element); });
+    }
 };
 
 
@@ -41889,6 +42409,51 @@ var toArray = function (a) {
     return ret;
 };
 var asArray = function (a) { return (Array.isArray(a) ? a : [a]); };
+
+
+/***/ }),
+
+/***/ "./node_modules/focus-lock/dist/es2015/utils/auto-focus.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/focus-lock/dist/es2015/utils/auto-focus.js ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "pickAutofocus": function() { return /* binding */ pickAutofocus; }
+/* harmony export */ });
+/* harmony import */ var _DOMutils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DOMutils */ "./node_modules/focus-lock/dist/es2015/utils/DOMutils.js");
+/* harmony import */ var _firstFocus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./firstFocus */ "./node_modules/focus-lock/dist/es2015/utils/firstFocus.js");
+/* harmony import */ var _is__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./is */ "./node_modules/focus-lock/dist/es2015/utils/is.js");
+
+
+
+var findAutoFocused = function (autoFocusables) {
+    return function (node) {
+        var _a;
+        var autofocus = (_a = (0,_is__WEBPACK_IMPORTED_MODULE_0__.getDataset)(node)) === null || _a === void 0 ? void 0 : _a.autofocus;
+        return (
+        // @ts-expect-error
+        node.autofocus ||
+            //
+            (autofocus !== undefined && autofocus !== 'false') ||
+            //
+            autoFocusables.indexOf(node) >= 0);
+    };
+};
+var pickAutofocus = function (nodesIndexes, orderedNodes, groups) {
+    var nodes = nodesIndexes.map(function (_a) {
+        var node = _a.node;
+        return node;
+    });
+    var autoFocusable = (0,_DOMutils__WEBPACK_IMPORTED_MODULE_1__.filterAutoFocusable)(nodes.filter(findAutoFocused(groups)));
+    if (autoFocusable && autoFocusable.length) {
+        return (0,_firstFocus__WEBPACK_IMPORTED_MODULE_2__.pickFirstFocus)(autoFocusable);
+    }
+    return (0,_firstFocus__WEBPACK_IMPORTED_MODULE_2__.pickFirstFocus)((0,_DOMutils__WEBPACK_IMPORTED_MODULE_1__.filterAutoFocusable)(orderedNodes));
+};
 
 
 /***/ }),
@@ -77492,7 +78057,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @remix-run/router */ "./node_modules/@remix-run/router/dist/router.js");
 /**
- * React Router DOM v6.4.0
+ * React Router DOM v6.4.1
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -78418,7 +78983,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /**
- * React Router v6.4.0
+ * React Router v6.4.1
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -88467,7 +89032,7 @@ function boxEquals(a, b) {
 function aspectRatio(box) {
     return (0,_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_0__.calcLength)(box.x) / (0,_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_0__.calcLength)(box.y);
 }
-function isCloseTo(a, b, max = 0.01) {
+function isCloseTo(a, b, max = 0.1) {
     return (0,popmotion__WEBPACK_IMPORTED_MODULE_1__.distance)(a, b) <= max;
 }
 
@@ -89806,7 +90371,7 @@ function roundBox(box) {
 function shouldAnimatePositionOnly(animationType, snapshot, layout) {
     return (animationType === "position" ||
         (animationType === "preserve-aspect" &&
-            !(0,_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_4__.isCloseTo)((0,_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_4__.aspectRatio)(snapshot), (0,_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_4__.aspectRatio)(layout))));
+            !(0,_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_4__.isCloseTo)((0,_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_4__.aspectRatio)(snapshot), (0,_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_4__.aspectRatio)(layout), 0.2)));
 }
 
 
@@ -93653,7 +94218,7 @@ function updateMotionValuesFromProps(element, next, prev) {
              * and warn against mismatches.
              */
             if (true) {
-                (0,_utils_warn_once_mjs__WEBPACK_IMPORTED_MODULE_2__.warnOnce)(nextValue.version === "7.3.5", `Attempting to mix Framer Motion versions ${nextValue.version} with 7.3.5 may not work as expected.`);
+                (0,_utils_warn_once_mjs__WEBPACK_IMPORTED_MODULE_2__.warnOnce)(nextValue.version === "7.3.6", `Attempting to mix Framer Motion versions ${nextValue.version} with 7.3.6 may not work as expected.`);
             }
         }
         else if ((0,_value_utils_is_motion_value_mjs__WEBPACK_IMPORTED_MODULE_0__.isMotionValue)(prevValue)) {
@@ -94522,7 +95087,7 @@ class MotionValue {
          * This will be replaced by the build step with the latest version number.
          * When MotionValues are provided to motion components, warn if versions are mixed.
          */
-        this.version = "7.3.5";
+        this.version = "7.3.6";
         /**
          * Duration, in milliseconds, since last updating frame.
          *
