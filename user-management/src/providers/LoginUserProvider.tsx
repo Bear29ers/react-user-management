@@ -13,7 +13,7 @@ export const LoginUserContext = createContext<LoginUserContextType>({} as LoginU
 
 export const LoginUserProvider = (props: { children: ReactNode }) => {
   const { children } = props;
-  const [loginUser, setLoginUser] = useState<LoginUser>(null);
+  const [loginUser, setLoginUser] = useState<LoginUser | null>(null);
   const value = useMemo(() => ({ loginUser, setLoginUser }), [loginUser]);
 
   return (
